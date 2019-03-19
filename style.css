@@ -1,3 +1,119 @@
-body{
-  background-color: peachpuff;
-}
+html {
+  height: 100%;
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #fafafa;
+  color: #383a42;
+  overflow: hidden;
+  height: 100%; }
+  body header {
+    height: 40px;
+    position: fixed;
+    top: 10px;
+    right: 20px; }
+    body header #indicator {
+      height: 38px;
+      width: 110px;
+      border: 1px solid red;
+      position: relative;
+      left: 0px;
+      top: 0px;
+      z-index: 2; }
+    body header nav {
+      position: relative;
+      top: -40px;
+      background-color: white;
+      border: 1px solid black; }
+      body header nav .nav-top {
+        display: flex;
+        justify-content: space-around;
+        height: 38px; }
+      body header nav .nav-bottom {
+        display: flex;
+        justify-content: space-around;
+        transition: all 0.3s;
+        transition-delay: 0.05s;
+        height: 40px;
+        overflow: hidden; }
+        body header nav .nav-bottom.hidden {
+          height: 0;
+          overflow: hidden;
+          transition: all 0.3s;
+          transition-delay: 0.05s; }
+      body header nav .nav-item {
+        display: inline-block;
+        margin: 10px;
+        width: 90px;
+        text-align: center; }
+        body header nav .nav-item:hover {
+          color: blue;
+          cursor: pointer; }
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+  main .scroll {
+    flex-grow: 1;
+    /*ensures that the container will take up the full height of the parent container*/
+    overflow-y: auto;
+    /*adds scroll to this container*/
+    scroll-snap-type: y mandatory; }
+  main .side-scroll-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory; }
+    main .side-scroll-container .side-scroll {
+      width: 100%;
+      flex: none;
+      scroll-snap-align: center; }
+  main section {
+    height: 100vh;
+    scroll-snap-align: start; }
+    main section.name {
+      color: black; }
+    main section .container {
+      padding: 20px;
+      padding-top: 60px; }
+
+p {
+  transition: max-height 1s;
+  max-height: 500px;
+  overflow: hidden; }
+
+.hidden {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+  transition-delay: 0.5s; }
+
+#about {
+  color: white;
+  background: repeating-linear-gradient(-45deg, blue, blue 20px, black 20px, black 40px); }
+
+.join {
+  height: 100px;
+  color: white;
+  background: repeating-linear-gradient(90deg, blue, blue 28.28427px, black 28.28427px, black calc(2*28.28427px)); }
+
+#skills {
+  color: white;
+  background: repeating-linear-gradient(-45deg, blue, blue 20px, black 20px, black 40px); }
+
+#experience {
+  color: black;
+  background: repeating-linear-gradient(45deg, lightgreen, lightgreen 40px, white 40px, white 80px); }
+
+#projects {
+  color: white;
+  background: repeating-linear-gradient(-30deg, red, red 40px, black 40px, black 80px); }
+
+#contact {
+  color: black;
+  background: repeating-linear-gradient(15deg, yellow, yellow 20px, white 20px, white 40px); }
+
+/*# sourceMappingURL=style.css.map */
