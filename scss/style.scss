@@ -1,4 +1,17 @@
 @import '_vars';
+
+@mixin stripes($color1,$color2) {
+  background: repeating-linear-gradient(
+  45deg,
+  $color1,
+  $color1 20px,
+  $color2 20px,
+  $color2 40px
+  );
+}
+
+$content-bg:rgba(0,0,0,0.9);
+
 html{
   height: 100%;
   box-sizing: border-box;
@@ -16,10 +29,12 @@ body{
     position: fixed;
     top: 10px;
     right: 20px;
+    background-color: rgba(0,0,0,1);
+    color: white;
     #indicator{
       height: 38px;
       width: 110px;
-      border: 1px solid red;
+      border: 1px solid white;
       position: relative;
       left: 0px;
       top: 0px;
@@ -28,8 +43,8 @@ body{
     nav{
       position: relative;
       top: -40px;
-      background-color: white;
-      border: 1px solid black;
+      // background-color: white;
+      // border: 1px solid black;
       .nav-top{
         display: flex;
         justify-content: space-around;
@@ -42,6 +57,7 @@ body{
         transition-delay: 0.05s;
         height: 40px;
         overflow: hidden;
+        background: black;
         &.hidden{
           height: 0;
           overflow: hidden;
@@ -57,13 +73,28 @@ body{
         text-align: center;
         // border: 1px solid red;
         &:hover{
-          color: blue;
+          color: black;
+          background-color: white;
           cursor: pointer;
         }
         // padding: 0;
       }
     }
   }
+  @media only screen and (max-width: 700px) {
+    header {
+      position: fixed;
+      height: 40px;
+      top: 0px;
+      right: 0px;
+      width: 100vw;
+    }
+  }
+}
+span{
+  display: inline-block;
+  background-color: $content-bg;
+  padding: 20px;
 }
 main{
   height: 100%;
@@ -74,6 +105,10 @@ main{
     overflow-y: auto;  /*adds scroll to this container*/
     scroll-snap-type: y mandatory;
   }
+  .content{
+    padding: 20px;
+    background-color: $content-bg;
+  }
   .side-scroll-container{
     display: flex;
     overflow-x: scroll;
@@ -83,44 +118,52 @@ main{
       width: 100%;
       flex: none;
       scroll-snap-align: center;
+
+      margin-right: 20px;
+      .content{
+        padding: 20px;
+        background-color: $content-bg;
+
+      }
     }
   }
-
-  section{
-    // width: 100%;
-    height: 100vh;
-    scroll-snap-align: start;
-
-    &.name{
-      color: black;
+  .bg-holder{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    overflow: hidden;
+    z-index: -1;
+    .bg{
+      width: 700vw;
+      height: 100vh;
+      &.bg-1{
+        background:repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        rgba(0,0,0,0.2) 20px,
+        rgba(0,0,0,0.2) 40px
+        ),linear-gradient(90deg,red, yellow, yellow,green,blue, orange, purple );
+      }
     }
+  }
+  section{
+    height: 100vh;
+    // background: linear-gradient(0deg, transparent 5%, black 95%, transparent );
+    scroll-snap-align: start;
+      color: white;
     .container{
-      padding: 20px;
-      padding-top: 60px;
+      // padding: 20px;
+      padding-top: 90px;
     }
   }
 }
-  // section:before{
-  //   background:
-  //         linear-gradient(-45deg, #1ba1e2 32px, red 32px, blue 32px,  transparent 0),
-  //         linear-gradient(45deg, #1ba1e2 32px, transparent 0);
-  //   background-position: left top;
-  //   background-repeat: repeat-x;
-  //   background-size: 22px 64px;
-  //   content: " ";
-  //   display: block;
-  //
-  //   height: 32px;
-  //   width: 100%;
-  //
-  //   position: relative;
-  //   bottom: 64px;
-  //   left:0;
-  // }
 p{
-    transition: max-height 1s;
-    max-height: 500px;
-    overflow: hidden;
+  transition: max-height 1s;
+  max-height: 500px;
+  max-height: 500px;
+  overflow: hidden;
 }
 .hidden{
   max-height: 0px;
@@ -128,65 +171,8 @@ p{
   transition: max-height 0.5s;
   transition-delay: 0.5s;
 }
-#about{
-  color: white;
-  background: repeating-linear-gradient(
-    -45deg,
-    blue,
-    blue 20px,
-    black 20px,
-    black 40px
-  );
-}
+
+
 .join{
   height: 100px;
-
-  color: white;
-  background: repeating-linear-gradient(
-    90deg,
-    blue,
-    blue 28.28427px,
-    black 28.28427px,
-    black calc(2*28.28427px)
-  );
-}
-#skills{
-  color: white;
-  background: repeating-linear-gradient(
-    -45deg,
-    blue,
-    blue 20px,
-    black 20px,
-    black 40px
-  );
-}
-#experience{
-  color: black;
-  background: repeating-linear-gradient(
-    45deg,
-    lightgreen,
-    lightgreen 40px,
-    white 40px,
-    white 80px
-  );
-}
-#projects{
-  color: white;
-  background: repeating-linear-gradient(
-    -30deg,
-    red,
-    red 40px,
-    black 40px,
-    black 80px
-  );
-}
-#contact{
-  color: black;
-  background: repeating-linear-gradient(
-    15deg,
-    yellow,
-    yellow 20px,
-    white 20px,
-    white 40px
-  );
 }

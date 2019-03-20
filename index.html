@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <title>James Benson</title>
 </head>
-<body>
+<body onresize="windowResize()">
   <header>
     <div id="indicator"></div>
     <nav class="navbar">
@@ -44,100 +44,123 @@
 
   </header>
   <main>
+    <div class="bg-holder">
+      <div class="bg bg-1"></div>
+      <!-- <div class="bg bg-2"></div>
+      <div class="bg bg-3"></div>
+      <div class="bg bg-4"></div>
+      <div class="bg bg-5"></div>
+      <div class="bg bg-6"></div> -->
+    </div>
     <div class="scroll">
       <section id="about">
         <div class="container">
           <h2>
-            About
+            <span>About</span>
           </h2>
-          <h3>
-            Web developer | London
-          </h3>
-          <div>
-            <p>I have recently finished a Web Development Immersive course at General Assembly London. It was an intensive 12 week course the took me from a beginner in HTML and JavaScript, to deploying Full-Stack applications built with tools such as React, MongoDB, Express and Node.js. The pace of new topics and content was fierce but I found it to be one of the most rewarding experiences of my life.</p>
+          <div class='content'>
+            <h3>
+              Web developer | London
+            </h3>
+            <div>
+              <p>I have recently finished a Web Development Immersive course at General Assembly London. It was an intensive 12 week course the took me from a beginner in HTML and JavaScript, to deploying Full-Stack applications built with tools such as React, MongoDB, Express and Node.js. The pace of new topics and content was fierce but I found it to be one of the most rewarding experiences of my life.</p>
 
-            <p>Previously, I worked for Micro-Power Electronics Ltd., a small electronics company that creates equipment for the power industry. I was tasked with creating a dashboard to show data from industrial sensors. Through my own learning and internal assistance, I was able to gain the skills necessary to integrate the data and create client side visualisations. I discovered I really enjoyed working in JavaScript and learning web technologies. This created a desire to formalise my training as a full stack developer and why I joined General Assembly.</p>
+              <p>Previously, I worked for Micro-Power Electronics Ltd., a small electronics company that creates equipment for the power industry. I was tasked with creating a dashboard to show data from industrial sensors. Through my own learning and internal assistance, I was able to gain the skills necessary to integrate the data and create client side visualisations. I discovered I really enjoyed working in JavaScript and learning web technologies. This created a desire to formalise my training as a full stack developer and why I joined General Assembly.</p>
 
-            <p>I am looking for a workplace that can provide me with challenges and surround me with experienced colleagues who I can learn from. I want to be able to progress as a developer by learning new skills and by being given greater responsibilities. </p>
+              <p>I am looking for a workplace that can provide me with challenges and surround me with experienced colleagues who I can learn from. I want to be able to progress as a developer by learning new skills and by being given greater responsibilities.</p>
 
+            </div>
           </div>
         </div>
       </section>
-        <div class="join">
-        </div>
+      <div class="join"></div>
       <section id="skills">
         <div class="container">
-          <h2>Skills</h2>
+          <h2><span>Skills</span></h2>
           <div class="side-scroll-container">
             <div id="tech-skills" class="side-scroll">
-              <h3>Technical Skills</h3>
-              <p>Web Technologies & Frameworks: React, HTML5, CSS3.0, </p>
-              <p>Scripts/UI: JavaScript, JQuery, AJAX, Bulma, BootStrap</p>
-              <p>Database and ORM: MongoDB, Mongoose</p>
-              <p>Web Debug Tools: Chrome developer tools, React developer tools</p>
-              <p>Application/Web Server: Webpack?</p>
-              <p>Versioning and other tools: Git,</p>
-              <p>Deployment Tools: Heroku</p>
+              <div class="content">
+                <h3>Technical Skills</h3>
+                <p>Web Technologies & Frameworks: React, HTML5, CSS3.0, </p>
+                <p>Scripts/UI: JavaScript, JQuery, AJAX, Bulma, BootStrap</p>
+                <p>Database and ORM: MongoDB, Mongoose</p>
+                <p>Web Debug Tools: Chrome developer tools, React developer tools</p>
+                <p>Application/Web Server: Webpack?</p>
+                <p>Versioning and other tools: Git,</p>
+                <p>Deployment Tools: Heroku</p>
+              </div>
             </div>
             <div id="soft-skills" class="side-scroll">
-              <h3>Soft Skills:</h3>
+              <div class="content">
+                <h3>Soft Skills:</h3>
 
-              <h3>Communication & Teamwork</h3>
-              <p>Respect, Empathy, Listening, Conflict Management, Cooperation, Negotiating</p>
+                <h3>Communication & Teamwork</h3>
+                <p>Respect, Empathy, Listening, Conflict Management, Cooperation, Negotiating</p>
 
-              <button onclick="toggleHidden('#communicationTeamwork')">Example:</button>
-              <p id="communicationTeamwork"class="hidden">When working on a group project at General Assembly, I found that members of the team wanted different levels of face to face communication, with some team members disturbing others whilst they were working hard and trying to concentrate. I opened a dialog to resolve the conflict, and by listening to everyone in the group with respect and empathy we came to a solution; regular scheduled meetings, so that people could feel included in the team but also allow those that needed their own space to thrive. This led to a much happier and more productive environment.</p>
+                <button onclick="toggleHidden('#communicationTeamwork')">Example:</button>
+                <p id="communicationTeamwork"class="hidden">When working on a group project at General Assembly, I found that members of the team wanted different levels of face to face communication, with some team members disturbing others whilst they were working hard and trying to concentrate. I opened a dialog to resolve the conflict, and by listening to everyone in the group with respect and empathy we came to a solution; regular scheduled meetings, so that people could feel included in the team but also allow those that needed their own space to thrive. This led to a much happier and more productive environment.</p>
 
-              <h3>Adaptability, Problem Solving & Creativity</h3>
-              <p>self-motivation,  self-learning, persistence</p>
+                <h3>Adaptability, Problem Solving & Creativity</h3>
+                <p>self-motivation,  self-learning, persistence</p>
 
-              <button onclick="toggleHidden('#adaptability')">Example:</button>
-              <p id="adaptability"class="hidden">Micro-Power Electronics creates electronic sensors for the power industry and was commissioned to create a device to collect sensor data and run an internal web server so that they could be configured and their internal logs be downloaded from a web browser. I researched online and followed tutorials to learn the basics of HTML and JavaScript and how to incorporate them into an embedded C project on the device’s PIC32 microcontroller. This self-motivation was crucial as during the project, I was often working on my own and would frequently hit problems. Through persistence, experimentation and, importantly, asking for help I was able to overcome these issues. The end result was a product that exceeded the clients expectations and changed the project from a system tool, to a product that can be used to generate customers.</p>
+                <button onclick="toggleHidden('#adaptability')">Example:</button>
+                <p id="adaptability"class="hidden">Micro-Power Electronics creates electronic sensors for the power industry and was commissioned to create a device to collect sensor data and run an internal web server so that they could be configured and their internal logs be downloaded from a web browser. I researched online and followed tutorials to learn the basics of HTML and JavaScript and how to incorporate them into an embedded C project on the device’s PIC32 microcontroller. This self-motivation was crucial as during the project, I was often working on my own and would frequently hit problems. Through persistence, experimentation and, importantly, asking for help I was able to overcome these issues. The end result was a product that exceeded the clients expectations and changed the project from a system tool, to a product that can be used to generate customers.</p>
 
+              </div>
             </div>
           </div>
         </div>
       </section>
+      <div class="join"></div>
       <section id="experience">
         <div class="container">
-          <h2>Experience</h2>
+          <h2><span>Experience</span></h2>
           <div class="side-scroll-container">
             <div id="experience1" class="side-scroll">
-              <h3>General Assembly</h3>
-              <h4>Student General Assembly (Nov 2018 - March 2019)</h4>
-              <p>Web development immersive course, a full time 12-week course that covered best practices and industry standards in programming fundamentals, product development basics, front-end development, back-end web development and team collaboration strategies.
-              </p>
+              <div class="content">
+                <h3>General Assembly</h3>
+                <h4>Student General Assembly (Nov 2018 - March 2019)</h4>
+                <p>Web development immersive course, a full time 12-week course that covered best practices and industry standards in programming fundamentals, product development basics, front-end development, back-end web development and team collaboration strategies.
+                </p>
+              </div>
             </div>
             <div id="experience2" class="side-scroll">
-              <h3>Software Developer,</h3>
-              <h4> Micro-Power Electronics Ltd., London (Jan/2016–November/2018)</h4>
-              <p>Micro-Power electronics produce fault detection and sensor control units for the power industry.
-                Duties entail creating circuit board layouts from circuit designs in Easy-PC,  using the MPLAB X IDE to program PIC microcontrollers in C, and assembling, testing and calibrating electronic devices.
-              </p>
+              <div class="content">
+                <h3>Software Developer,</h3>
+                <h4>Micro-Power Electronics Ltd., London (Jan/2016–November/2018)</h4>
+                <p>Micro-Power electronics produce fault detection and sensor control units for the power industry.
+                  Duties entail creating circuit board layouts from circuit designs in Easy-PC,  using the MPLAB X IDE to program PIC microcontrollers in C, and assembling, testing and calibrating electronic devices.
+                </p>
+              </div>
             </div>
             <div id="experience3" class="side-scroll">
-              <h3>Boom Operator,</h3>
-              <h4>Various, London (Jan/2013–November/2016)</h4>
-              <p>I worked on feature films and TV shows such as Poirot, Pokemon: Detective Pikachu, and Game of Thrones.</p>
-              <p>I would have to physically hold microphones above actors on set, hide microphones in actors clothing and control all unwanted external noise. I would often interact with other departments to ensure the best audio recordings possible.
-              </p>
+              <div class="content">
+                <h3>Boom Operator</h3>
+                <h4>Various, London (Jan/2013–November/2016)</h4>
+                <p>I worked on feature films and TV shows such as Poirot, Pokemon: Detective Pikachu, and Game of Thrones.</p>
+                <p>I would have to physically hold microphones above actors on set, hide microphones in actors clothing and control all unwanted external noise. I would often interact with other departments to ensure the best audio recordings possible.
+                </p>
 
-              <h3>Sound Recordist,</h3>
-              <h4>Various , London(July/2009 - August/2011)</h4>
-              <p>Before attending film school I worked on many short and low budget feature films.
-                I had to be the sole representative of the sound department and ensure good quality audio recordings.
-              </p>
+                <h3>Sound Recordist</h3>
+                <h4>Various , London(July/2009 - August/2011)</h4>
+                <p>Before attending film school I worked on many short and low budget feature films.
+                  I had to be the sole representative of the sound department and ensure good quality audio recordings.
+                </p>
+              </div>
             </div>
             <div id="experience4" class="side-scroll">
-              <h3>Web Producer,</h3>
-              <h4> Microsoft, London (July/2008–July/2009)</h4>
-              <p>I worked for MSN, the Microsoft web portal that provides News, Sport and Entertainment news.
-                created custom web-page layouts using an in-house content management system to put editorial content onto the web. I also recorded podcasts and filmed interviews.
-              </p>
+              <div class="content">
+                <h3>Web Producer</h3>
+                <h4>Microsoft, London (July/2008–July/2009)</h4>
+                <p>I worked for MSN, the Microsoft web portal that provides News, Sport and Entertainment news.
+                  created custom web-page layouts using an in-house content management system to put editorial content onto the web. I also recorded podcasts and filmed interviews.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
+      <div class="join"></div>
       <section id="education">
         <div class="container">
           <h2>Education</h2>
@@ -160,6 +183,7 @@
           </div>
         </div>
       </section>
+      <div class="join"></div>
       <section id="projects">
         <div class="container">
           <h2>Projects</h2>
@@ -225,6 +249,7 @@
           </div>
         </div>
       </section>
+      <div class="join"></div>
       <section id="contact">
         <div class="container">
           <h2>Contact</h2>
@@ -271,56 +296,66 @@
   // listen for scroll event and call animate function
   scroller.addEventListener("scroll", (e)=>debounce(animate,e));
 
+  const bgHolder = document.querySelector('.bg-holder')
+  // bgHolder.style.backgroundImage = "repeating-linear-gradient(45deg, red, red 20px, black 20px, black 40px)"
+
+  // bgHolder.style.backgroundImage = 'linear-gradient(#000000, #ffffff)'
+  const aboutSection = document.querySelector('#about')
   const projectsSection = document.querySelector('#projects')
   const skillsSection = document.querySelector('#skills')
   const experienceSection = document.querySelector('#experience')
   const educationSection = document.querySelector('#education')
   const indicator = document.querySelector('#indicator')
   const navbar = document.querySelector('.navbar')
-  const indicatorTrack = navbar.offsetWidth - indicator.offsetWidth
+  const indicatorTrack = (navbar.offsetWidth - indicator.offsetWidth)/100
+  const numberOfPics = 5
 
-  indicator.onmousedown = moveIndicator
-  let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  function moveIndicator(e){
-    e = e || window.event
-    e.preventDefault()
+  let bgTrack = ((numberOfPics*window.innerWidth)/100)
 
-    pos3 = e.clientX;
-    // pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    document.onmousemove = elementDrag;
-    console.log("indicator", e.clientX)
-    indicator.style.left = e.clientX
-  }
-
-  function elementDrag(e){
-    e = e || window.event
-    e.preventDefault()
-    pos1 = pos3 - e.clientX;
-    // pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    // pos4 = e.clientY;
-    // indicator.style.top = (indicator.offsetTop - pos2) + "px"
-    indicator.style.left = (indicator.offsetLeft - pos1) + "px"
-    scroller.scrollTop -= pos1*10;
-
-    console.log('drag', pos1*20, scroller.scrollTop )
-
-  }
-
-  function closeDragElement(){
-    console.log('close')
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
+  // indicator.onmousedown = moveIndicator
+  // let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  // function moveIndicator(e){
+  //   e = e || window.event
+  //   e.preventDefault()
+  //
+  //   pos3 = e.clientX;
+  //   // pos4 = e.clientY;
+  //   document.onmouseup = closeDragElement;
+  //   document.onmousemove = elementDrag;
+  //   console.log("indicator", e.clientX)
+  //   indicator.style.left = e.clientX
+  // }
+  //
+  // function windowResize(){
+  //   bgTrack = ((numberOfPics*window.innerWidth)/100)
+  // }
+  //
+  // function elementDrag(e){
+  //   e = e || window.event
+  //   e.preventDefault()
+  //   pos1 = pos3 - e.clientX;
+  //   // pos2 = pos4 - e.clientY;
+  //   pos3 = e.clientX;
+  //   // pos4 = e.clientY;
+  //   // indicator.style.top = (indicator.offsetTop - pos2) + "px"
+  //   indicator.style.left = (indicator.offsetLeft - pos1) + "px"
+  //   scroller.scrollTop -= pos1*10;
+  //
+  //   console.log('drag', pos1*20, scroller.scrollTop )
+  //
+  // }
+  //
+  // function closeDragElement(){
+  //   console.log('close')
+  //   document.onmouseup = null;
+  //   document.onmousemove = null;
+  // }
 
   // check if element is in view
   function inView(element, scrollY) {
     // get window height
     // var windowHeight = scroller.scrollHeight;
     // get number of pixels that the document is scrolled
-
-
     // get current scroll position (distance from the top of the page to the bottom of the current viewport)
     var elementPosition = element.getBoundingClientRect().top + scrollY;
     // console.log('check', windowHeight, scrollY, Math.floor(elementPosition))
@@ -329,23 +364,45 @@
     return (scrollY >= Math.floor(elementPosition - 150) && scrollY < Math.floor(elementPosition + 150) )
 
   }
-
   // animate element when it is in view
   function animate() {
     // is element in view?
     const scrollY = scroller.scrollTop || 0
     scrollPercent = scrollY/(scroller.scrollHeight-window.innerHeight)*100
-    indicatorLeft = (indicatorTrack/100) * scrollPercent
+    indicatorLeft = indicatorTrack * scrollPercent
 
-
-    console.log(scrollPercent, indicatorTrack, indicatorLeft)
-
+    bgLeft = bgTrack * scrollPercent
+    bgHolder.style.left = -bgLeft+"px"
+    // '-moz-linear-gradient('
+        // + orientation + ', ' + colorOne + ', ' + colorTwo + ')';
+    // bgHolder.style.backgroundImage = "repeating-linear-gradient(45deg, red, red 20px, black 20px, black 40px)"
+    // num = scrollY*16
+    // red =
+    // console.log(num.toString(16).padStart(6,'0'))
+    // color1 = '#'+num.toString(16).padStart(6,'0')
+    // bgHolder.style.backgroundImage = "repeating-linear-gradient(45deg, "+color1+","+color1+" 20px, black 20px, black 40px)"
     indicator.style.left = indicatorLeft+"px"
+
     showBottomNav()
-    inView(projectsSection, scrollY) && showBottomNav('#nav-projects')
-    inView(skillsSection, scrollY) && showBottomNav('#nav-skills')
-    inView(experienceSection, scrollY) && showBottomNav('#nav-experience')
-    inView(educationSection, scrollY) && showBottomNav('#nav-education')
+    // if(inView(aboutSection, scrollY)){
+    //   bgHolder.style.backgroundImage = "repeating-linear-gradient(45deg, red, red 20px, black 20px, black 40px)"
+    //  }
+    if(inView(projectsSection, scrollY)){
+      showBottomNav('#nav-projects')
+      // bgHolder.style.backgroundImage = "repeating-linear-gradient(45deg, red, red 20px, black 20px, black 40px)"
+     }
+    if(inView(skillsSection, scrollY)){
+      showBottomNav('#nav-skills')
+      // bgHolder.style.backgroundImage = "repeating-linear-gradient(45deg, yellow, yellow 20px, black 20px, black 40px)"
+     }
+    if(inView(experienceSection, scrollY)){
+      showBottomNav('#nav-experience')
+      // bgHolder.style.backgroundImage = "repeating-linear-gradient(45deg, green, green 20px, black 20px, black 40px)"
+     }
+    if(inView(educationSection, scrollY)){
+      showBottomNav('#nav-education')
+      // bgHolder.style.backgroundImage = "repeating-linear-gradient(45deg, blue, blue 20px, black 20px, black 40px)"
+     }
   }
 
   </script>
