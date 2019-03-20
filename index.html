@@ -2,12 +2,15 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="theme-color" content="#317EFB"/>
+   <meta name="Description" content="James Benson web developer portfolio">
   <script src="app.js" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>James Benson</title>
 </head>
-<body onresize="windowResize()">
+<body>
   <header>
     <div id="indicator"></div>
     <nav class="navbar">
@@ -55,8 +58,8 @@
     <div class="scroll">
       <section id="about">
         <div class="container">
-          <h2>
-            <span>About</span>
+          <h2 >
+            <span class="ul-1">About</span>
           </h2>
           <div class='content'>
             <h3>
@@ -76,7 +79,7 @@
       <div class="join"></div>
       <section id="skills">
         <div class="container">
-          <h2><span>Skills</span></h2>
+          <h2><span class="ul-2">Skills</span></h2>
           <div class="side-scroll-container">
             <div id="tech-skills" class="side-scroll">
               <div class="content">
@@ -114,7 +117,7 @@
       <div class="join"></div>
       <section id="experience">
         <div class="container">
-          <h2><span>Experience</span></h2>
+          <h2><span class="ul-3">Experience</span></h2>
           <div class="side-scroll-container">
             <div id="experience1" class="side-scroll">
               <div class="content">
@@ -163,7 +166,7 @@
       <div class="join"></div>
       <section id="education">
         <div class="container">
-          <h2><span>Education</span></h2>
+          <h2><span class="ul-4">Education</span></h2>
           <div class="side-scroll-container">
             <div id="education1" class="side-scroll">
               <div class="content">
@@ -192,15 +195,15 @@
       <div class="join"></div>
       <section id="projects">
         <div class="container">
-          <h2><span>Projects</span></h2>
+          <h2><span class="ul-5">Projects</span></h2>
           <!-- <nav>JamDex Pepino  Health & Tasty Nocturn<nav> -->
           <div class="side-scroll-container">
             <div id="project1" class="side-scroll">
               <div class="content">
                 <div class="flex row">
                   <h3>Project-04 - JamDex</h3>
-                  <a href="http://github.com/jjbenson85/jamdex" target="_blank">Github: github.com/jjbenson85/jamdex</a>
-                  <a href="https://jamdex.herokuapp.com/" target="_blank">Live Site: https://jamdex.herokuapp.com/</a>
+                  <a href="http://github.com/jjbenson85/jamdex" target="_blank" rel="noreferrer">Github: github.com/jjbenson85/jamdex</a>
+                  <a href="https://jamdex.herokuapp.com/" target="_blank" rel="noreferrer">Live Site: https://jamdex.herokuapp.com/</a>
                 </div>
                 <p>HTML - CSS - JavaScript - React - Python - PostgreSQL - Flask - SQLAlchemy - Marshmallow - Enzyme - Mocha - Chai - Node.js</p>
                 <p><span>Time:  7 Days</span>
@@ -260,13 +263,13 @@
       <div class="join"></div>
       <section id="contact">
         <div class="container">
-          <h2><span>Contact</span></h2>
+          <h2><span class="ul-6">Contact</span></h2>
           <div>
             <div class="content">
               <p>Email: <email>jjbenson85@gmail.com</email></p>
               <tel></tel>
-              <p>GitHub: <a href="https://github.com/jjbenson85" target="_blank">https://github.com/jjbenson85</a></p>
-              <p>LinkedIn: <a href="https://www.linkedin.com/in/jjbenson/" target="_blank">https://www.linkedin.com/in/jjbenson/</a></p>
+              <p>GitHub: <a href="https://github.com/jjbenson85" target="_blank" rel="noreferrer">https://github.com/jjbenson85</a></p>
+              <p>LinkedIn: <a href="https://www.linkedin.com/in/jjbenson/" target="_blank" rel="noreferrer">https://www.linkedin.com/in/jjbenson/</a></p>
             </div>
           </div>
         </div>
@@ -317,7 +320,8 @@
   const educationSection = document.querySelector('#education')
   const indicator = document.querySelector('#indicator')
   const navbar = document.querySelector('.navbar')
-  const indicatorTrack = (navbar.offsetWidth - indicator.offsetWidth)/100
+  const indicatorTrack = (navbar.offsetWidth - indicator.clientWidth)/100
+  console.log('indicator.offsetWidth',indicator.clientWidth)
   const numberOfPics = 5
 
   let bgTrack = ((numberOfPics*window.innerWidth)/100)
@@ -376,22 +380,14 @@
   }
   // animate element when it is in view
   function animate() {
-    // is element in view?
     const scrollY = scroller.scrollTop || 0
     scrollPercent = scrollY/(scroller.scrollHeight-window.innerHeight)*100
+
     indicatorLeft = indicatorTrack * scrollPercent
+    indicator.style.left = indicatorLeft+"px"
 
     bgLeft = bgTrack * scrollPercent
     bgHolder.style.left = -bgLeft+"px"
-    // '-moz-linear-gradient('
-        // + orientation + ', ' + colorOne + ', ' + colorTwo + ')';
-    // bgHolder.style.backgroundImage = "repeating-linear-gradient(45deg, red, red 20px, black 20px, black 40px)"
-    // num = scrollY*16
-    // red =
-    // console.log(num.toString(16).padStart(6,'0'))
-    // color1 = '#'+num.toString(16).padStart(6,'0')
-    // bgHolder.style.backgroundImage = "repeating-linear-gradient(45deg, "+color1+","+color1+" 20px, black 20px, black 40px)"
-    indicator.style.left = indicatorLeft+"px"
 
     showBottomNav()
     // if(inView(aboutSection, scrollY)){
