@@ -10,10 +10,22 @@
   <link rel="stylesheet" href="style.css">
   <title>James Benson</title>
 </head>
-<body>
+<body onresize="windowResize()">
   <header>
-    <div id="indicator"></div>
-    <nav class="navbar">
+    <div id="burger"onclick="burgerToggle()">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+    <nav class="navbar-tablet">
+      <div  class="nav-item" onclick="handleScroll('#about')">about</div>
+      <div  class="nav-item" onclick="handleScroll('#skills')">skills</div>
+      <div  class="nav-item" onclick="handleScroll('#experience')">experience</div>
+      <div  class="nav-item" onclick="handleScroll('#education')">education</div>
+      <div  class="nav-item" onclick="handleScroll('#projects')">projects</div>
+      <div  class="nav-item" onclick="handleScroll('#contact')">contact</div></nav>
+    <nav class="navbar" >
+      <div id="indicator" class='indicator'></div>
       <div class="nav-top">
         <div  class="nav-item" onclick="handleScroll('#about')">about</div>
         <div  class="nav-item" onclick="handleScroll('#skills')">skills</div>
@@ -22,6 +34,7 @@
         <div  class="nav-item" onclick="handleScroll('#projects')">projects</div>
         <div  class="nav-item" onclick="handleScroll('#contact')">contact</div>
       </div>
+      <div id="bottom-indicator" class='indicator'></div>
       <div id="nav-projects" class="nav-bottom hidden">
         <div class="nav-item" onclick="handleScroll('#project1')">Project 1</div>
         <div class="nav-item" onclick="handleScroll('#project2')">Project 2</div>
@@ -48,19 +61,14 @@
   </header>
   <main>
     <div class="bg-holder">
-      <div class="bg bg-1"></div>
-      <!-- <div class="bg bg-2"></div>
-      <div class="bg bg-3"></div>
-      <div class="bg bg-4"></div>
-      <div class="bg bg-5"></div>
-      <div class="bg bg-6"></div> -->
+      <div class="bg"></div>
     </div>
     <div class="scroll">
       <section id="about">
+        <h2 >
+          <span class="ul-1">About</span>
+        </h2>
         <div class="container">
-          <h2 >
-            <span class="ul-1">About</span>
-          </h2>
           <div class='content'>
             <h3>
               Web developer | London
@@ -78,8 +86,8 @@
       </section>
       <div class="join"></div>
       <section id="skills">
+        <h2><span class="ul-2">Skills</span></h2>
         <div class="container">
-          <h2><span class="ul-2">Skills</span></h2>
           <div class="side-scroll-container">
             <div id="tech-skills" class="side-scroll">
               <div class="content">
@@ -116,8 +124,8 @@
       </section>
       <div class="join"></div>
       <section id="experience">
+        <h2><span class="ul-3">Experience</span></h2>
         <div class="container">
-          <h2><span class="ul-3">Experience</span></h2>
           <div class="side-scroll-container">
             <div id="experience1" class="side-scroll">
               <div class="content">
@@ -165,8 +173,8 @@
       </section>
       <div class="join"></div>
       <section id="education">
+        <h2><span class="ul-4">Education</span></h2>
         <div class="container">
-          <h2><span class="ul-4">Education</span></h2>
           <div class="side-scroll-container">
             <div id="education1" class="side-scroll">
               <div class="content">
@@ -194,8 +202,8 @@
       </section>
       <div class="join"></div>
       <section id="projects">
+        <h2><span class="ul-5">Projects</span></h2>
         <div class="container">
-          <h2><span class="ul-5">Projects</span></h2>
           <!-- <nav>JamDex Pepino  Health & Tasty Nocturn<nav> -->
           <div class="side-scroll-container">
             <div id="project1" class="side-scroll">
@@ -262,8 +270,8 @@
       </section>
       <div class="join"></div>
       <section id="contact">
+        <h2><span class="ul-6">Contact</span></h2>
         <div class="container">
-          <h2><span class="ul-6">Contact</span></h2>
           <div>
             <div class="content">
               <p>Email: <email>jjbenson85@gmail.com</email></p>
@@ -277,11 +285,18 @@
     </div>
   </main>
   <script>
+  let tablet = false;
+  tablet = (screen.width <= 768)
 
   function showBottomNav(example){
     var bottomNavs = document.querySelectorAll('.nav-bottom')
     bottomNavs.forEach(elem => elem.classList.add('hidden'))
-    example && document.querySelector(example).classList.remove('hidden')
+    bottomIndicator.style.display = "none"
+    if(example){
+      document.querySelector(example).classList.remove('hidden')
+      bottomIndicator.style.display = "block"
+
+    }
   }
 
   function toggleHidden(example){
@@ -319,12 +334,29 @@
   const experienceSection = document.querySelector('#experience')
   const educationSection = document.querySelector('#education')
   const indicator = document.querySelector('#indicator')
+  const bottomIndicator = document.querySelector('#bottom-indicator')
   const navbar = document.querySelector('.navbar')
-  const indicatorTrack = (navbar.offsetWidth - indicator.clientWidth)/100
+  const burger = document.querySelector('#burger')
+  const navbarTablet = document.querySelector('.navbar-tablet')
+  let indicatorTrack = (navbar.offsetWidth - indicator.clientWidth)/100
   console.log('indicator.offsetWidth',indicator.clientWidth)
   const numberOfPics = 5
 
   let bgTrack = ((numberOfPics*window.innerWidth)/100)
+
+  function windowResize(){
+    indicator.style.width = (navbar.offsetWidth/6)+"px"
+    indicatorTrack = (navbar.offsetWidth - indicator.clientWidth)/100
+    animate()
+  }
+
+  function burgerToggle(){
+    navbarTablet.classList.toggle('active')
+    burger.classList.toggle("change");
+  }
+  // if(tablet){
+  //   bgTrack = ((numberOfPics*window.innerHeight)/100)
+  // }
 
   // indicator.onmousedown = moveIndicator
   // let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -382,12 +414,18 @@
   function animate() {
     const scrollY = scroller.scrollTop || 0
     scrollPercent = scrollY/(scroller.scrollHeight-window.innerHeight)*100
+    // if (tablet) {
+    //
+    //
+    //
+    //   return
+    // }
 
     indicatorLeft = indicatorTrack * scrollPercent
     indicator.style.left = indicatorLeft+"px"
 
-    bgLeft = bgTrack * scrollPercent
-    bgHolder.style.left = -bgLeft+"px"
+    bgMove = bgTrack * scrollPercent
+    bgHolder.style.left = -bgMove+"px"
 
     showBottomNav()
     // if(inView(aboutSection, scrollY)){

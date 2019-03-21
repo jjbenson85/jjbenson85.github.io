@@ -3,76 +3,127 @@ html {
   box-sizing: border-box; }
 
 body {
+  position: fixed; }
+
+body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   box-sizing: border-box;
   background-color: #fafafa;
   color: #383a42;
   overflow: hidden;
-  height: 100%; }
+  height: 100%;
+  width: 100%; }
   body header {
     height: 40px;
     position: fixed;
     top: 10px;
     right: 20px;
-    background-color: black;
     color: white; }
-    body header #indicator {
+    body header .indicator {
       height: 38px;
       width: 140px;
-      border: 1px solid white;
-      position: relative;
       left: 0px;
-      top: 0px;
-      z-index: 2; }
-    body header nav {
       position: relative;
-      top: -40px; }
-      body header nav .nav-top {
-        display: flex;
-        justify-content: space-around;
-        height: 38px; }
-      body header nav .nav-bottom {
-        display: flex;
-        justify-content: space-around;
-        transition: all 0.3s;
-        transition-delay: 0.05s;
-        height: 40px;
+      z-index: 2; }
+    body header #indicator {
+      border: 1px solid white;
+      top: 0px; }
+    body header #bottom-indicator {
+      border: 1px solid black;
+      top: -40px;
+      display: none; }
+    body header #burger {
+      display: none; }
+    body header .nav-item {
+      display: inline-block;
+      margin: 10px;
+      width: 120px;
+      text-align: center; }
+      body header .nav-item:hover {
+        text-decoration: underline;
+        text-underline-position: under;
+        cursor: pointer; }
+        body header .nav-item:hover:nth-child(1) {
+          text-decoration-color: #0000FF; }
+        body header .nav-item:hover:nth-child(2) {
+          text-decoration-color: #0088FF; }
+        body header .nav-item:hover:nth-child(3) {
+          text-decoration-color: #00FFFF; }
+        body header .nav-item:hover:nth-child(4) {
+          text-decoration-color: #00FF88; }
+        body header .nav-item:hover:nth-child(5) {
+          text-decoration-color: #00FF00; }
+        body header .nav-item:hover:nth-child(6) {
+          text-decoration-color: #88FF00; }
+    body header .navbar-tablet {
+      display: none; }
+    body header .navbar .nav-top {
+      background: black;
+      position: relative;
+      top: -40px;
+      display: flex;
+      justify-content: space-around;
+      height: 38px; }
+    body header .navbar .nav-bottom {
+      background: white;
+      color: black;
+      position: relative;
+      top: -80px;
+      display: flex;
+      justify-content: space-around;
+      transition: all 0.3s;
+      transition-delay: 0.05s;
+      height: 40px;
+      overflow: hidden; }
+      body header .navbar .nav-bottom.hidden {
+        height: 0;
         overflow: hidden;
-        background: black; }
-        body header nav .nav-bottom.hidden {
-          height: 0;
-          overflow: hidden;
-          transition: all 0.3s;
-          transition-delay: 0.05s; }
-      body header nav .nav-item {
-        display: inline-block;
-        margin: 10px;
-        width: 120px;
-        text-align: center; }
-        body header nav .nav-item:hover {
-          text-decoration: underline;
-          text-underline-position: under;
-          cursor: pointer; }
-          body header nav .nav-item:hover:nth-child(1) {
-            text-decoration-color: #0000FF; }
-          body header nav .nav-item:hover:nth-child(2) {
-            text-decoration-color: #0088FF; }
-          body header nav .nav-item:hover:nth-child(3) {
-            text-decoration-color: #00FFFF; }
-          body header nav .nav-item:hover:nth-child(4) {
-            text-decoration-color: #00FF88; }
-          body header nav .nav-item:hover:nth-child(5) {
-            text-decoration-color: #00FF00; }
-          body header nav .nav-item:hover:nth-child(6) {
-            text-decoration-color: #88FF00; }
-  @media only screen and (max-width: 700px) {
+        transition: all 0.3s;
+        transition-delay: 0.05s; }
+  @media only screen and (max-width: 1000px) {
     body header {
       position: fixed;
       height: 40px;
       top: 0px;
       right: 0px;
       width: 100vw; } }
+  @media only screen and (max-width: 768px) {
+    body header #burger {
+      position: fixed;
+      right: 4px;
+      top: 4px;
+      padding: 10px;
+      background: black;
+      display: inline-block;
+      cursor: pointer; }
+      body header #burger .bar1, body header #burger .bar2, body header #burger .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: #fff;
+        margin: 6px 0;
+        transition: 0.4s; }
+      body header #burger.change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px); }
+      body header #burger.change .bar2 {
+        opacity: 0; }
+      body header #burger.change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px); }
+    body header .indicator {
+      display: none; }
+    body header .navbar-tablet {
+      display: flex;
+      max-height: 0;
+      transition: all 1s;
+      flex-direction: column;
+      background-color: black;
+      overflow: hidden; }
+      body header .navbar-tablet.active {
+        max-height: 500px; }
+    body header .navbar {
+      display: none; } }
 
 h1, h2, h3, .nav-item {
   text-transform: uppercase;
@@ -130,9 +181,6 @@ main {
       flex: none;
       scroll-snap-align: center;
       margin-right: 20px; }
-      main .side-scroll-container .side-scroll .content {
-        padding: 20px;
-        background-color: rgba(0, 0, 0, 0.9); }
   main .bg-holder {
     position: absolute;
     top: 0;
@@ -142,15 +190,25 @@ main {
     z-index: -1; }
     main .bg-holder .bg {
       width: 600vw;
-      height: 100vh; }
-      main .bg-holder .bg.bg-1 {
-        background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0, 0, 0, 0.2) 20px, rgba(0, 0, 0, 0.2) 40px), linear-gradient(90deg, #0000FF, #0088FF, #00FFFF, #00FF88, #00FF00, #88FF00); }
+      height: 100vh;
+      background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0, 0, 0, 0.2) 20px, rgba(0, 0, 0, 0.2) 40px), linear-gradient(90deg, #0000FF, #0088FF, #00FFFF, #00FF88, #00FF00, #88FF00); }
+  @media only screen and (max-width: 768px) {
+    main .bg {
+      height: 700vh;
+      width: 100vw;
+      background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0, 0, 0, 0.2) 20px, rgba(0, 0, 0, 0.2) 40px), linear-gradient(0deg, #0000FF, #0088FF, #00FFFF, #00FF88, #00FF00, #88FF00); } }
   main section {
     height: 100vh;
     scroll-snap-align: start;
-    color: white; }
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
     main section .container {
-      padding-top: 90px; }
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
 
 p {
   transition: max-height 1s;
