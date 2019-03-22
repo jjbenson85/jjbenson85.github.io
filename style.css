@@ -36,7 +36,8 @@ body {
       display: inline-block;
       margin: 10px;
       width: 120px;
-      text-align: center; }
+      text-align: center;
+      user-select: none; }
       body header .nav-item:hover, body header .nav-item.active {
         text-decoration: underline;
         text-underline-position: under;

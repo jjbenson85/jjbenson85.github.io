@@ -61,6 +61,7 @@ body{
       margin: 10px;
       width: 120px;
       text-align: center;
+      user-select: none;
       // text-decoration: none;
       // border: 1px solid red;
       &:hover, &.active{
