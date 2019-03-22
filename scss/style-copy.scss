@@ -1,7 +1,26 @@
 @import '_vars';
-@import '_mixins';
-@import '_mobile';
 
+@mixin stripes($color1,$color2) {
+  background: repeating-linear-gradient(
+  45deg,
+  $color1,
+  $color1 20px,
+  $color2 20px,
+  $color2 40px
+  );
+}
+
+$content-bg:rgba(0,0,0,0.9);
+$section-color-1: #0000FF;
+$section-color-2: #0088FF;
+$section-color-3: #00FFFF;
+$section-color-4: #00FF88;
+$section-color-5: #00FF00;
+$section-color-6: #88FF00;
+
+$mobile-width: 500px;
+$tablet-width: 768px;
+$medium-width: 1000px;
 
 html{
   height: 100%;
@@ -15,8 +34,8 @@ body{
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   box-sizing: border-box;
-  // background-color: $syntax-bg;
-  color: white;
+  background-color: $syntax-bg;
+  color: $syntax-fg;
   overflow: hidden;
   height: 100%;
   width: 100%;
@@ -41,16 +60,8 @@ body{
     }
     #bottom-indicator{
       border: 1px solid black;
-      // top: -40px;
-      // display: none;
-      // opacity: 0;
-      // height: 0px;
-      // transition: opacity 0.3s;
-      // transition-delay: 0.05s;
-      // &.active{
-        // opacity: 1;
-        // height: 38px;
-      // }
+      top: -40px;
+      display: none;
     }
 
     #burger{
@@ -63,7 +74,7 @@ body{
       text-align: center;
       // text-decoration: none;
       // border: 1px solid red;
-      &:hover, &.active{
+      &:hover{
         text-decoration: underline;
         text-underline-position: under;
         cursor: pointer;
@@ -105,29 +116,15 @@ body{
         justify-content: space-around;
         height: 38px;
       }
-      #nav-bottom-holder{
-        height: 40px;
-        overflow: hidden;
+      .nav-bottom{
         background: white;
         color: black;
         position: relative;
-        top: -40px;
-        &.hidden{
-          height: 0;
-          overflow: hidden;
-          transition: all 0.3s;
-          transition-delay: 0.05s;
-        }
-      }
-      .nav-bottom{
-        // background: white;
-        // color: black;
-        position: relative;
-        top: -40px;
+        top: -80px;
         display: flex;
         justify-content: space-around;
-        // transition: all 0.3s;
-        // transition-delay: 0.05s;
+        transition: all 0.3s;
+        transition-delay: 0.05s;
         height: 40px;
         overflow: hidden;
         &.hidden{
@@ -321,7 +318,7 @@ main{
     text-decoration-color: $section-color-6;
     text-underline-position: under;
   }
-  #main-scroll{
+  .scroll{
     flex-grow: 1;  /*ensures that the container will take up the full height of the parent container*/
     overflow-y: auto;  /*adds scroll to this container*/
     scroll-snap-type: y mandatory;

@@ -1,0 +1,9 @@
+@mixin stripes($color1,$color2) {
+  background: repeating-linear-gradient(
+  45deg,
+  $color1,
+  $color1 20px,
+  $color2 20px,
+  $color2 40px
+  );
+}

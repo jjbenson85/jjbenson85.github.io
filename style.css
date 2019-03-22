@@ -9,8 +9,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   box-sizing: border-box;
-  background-color: #fafafa;
-  color: #383a42;
+  color: white;
   overflow: hidden;
   height: 100%;
   width: 100%; }
@@ -30,9 +29,7 @@ body {
       border: 1px solid white;
       top: 0px; }
     body header #bottom-indicator {
-      border: 1px solid black;
-      top: -40px;
-      display: none; }
+      border: 1px solid black; }
     body header #burger {
       display: none; }
     body header .nav-item {
@@ -40,21 +37,21 @@ body {
       margin: 10px;
       width: 120px;
       text-align: center; }
-      body header .nav-item:hover {
+      body header .nav-item:hover, body header .nav-item.active {
         text-decoration: underline;
         text-underline-position: under;
         cursor: pointer; }
-        body header .nav-item:hover:nth-child(1) {
+        body header .nav-item:hover:nth-child(1), body header .nav-item.active:nth-child(1) {
           text-decoration-color: #0000FF; }
-        body header .nav-item:hover:nth-child(2) {
+        body header .nav-item:hover:nth-child(2), body header .nav-item.active:nth-child(2) {
           text-decoration-color: #0088FF; }
-        body header .nav-item:hover:nth-child(3) {
+        body header .nav-item:hover:nth-child(3), body header .nav-item.active:nth-child(3) {
           text-decoration-color: #00FFFF; }
-        body header .nav-item:hover:nth-child(4) {
+        body header .nav-item:hover:nth-child(4), body header .nav-item.active:nth-child(4) {
           text-decoration-color: #00FF88; }
-        body header .nav-item:hover:nth-child(5) {
+        body header .nav-item:hover:nth-child(5), body header .nav-item.active:nth-child(5) {
           text-decoration-color: #00FF00; }
-        body header .nav-item:hover:nth-child(6) {
+        body header .nav-item:hover:nth-child(6), body header .nav-item.active:nth-child(6) {
           text-decoration-color: #88FF00; }
     body header .navbar-tablet {
       display: none; }
@@ -65,15 +62,23 @@ body {
       display: flex;
       justify-content: space-around;
       height: 38px; }
-    body header .navbar .nav-bottom {
+    body header .navbar #nav-bottom-holder {
+      height: 40px;
+      overflow: hidden;
       background: white;
       color: black;
       position: relative;
-      top: -80px;
+      top: -40px; }
+      body header .navbar #nav-bottom-holder.hidden {
+        height: 0;
+        overflow: hidden;
+        transition: all 0.3s;
+        transition-delay: 0.05s; }
+    body header .navbar .nav-bottom {
+      position: relative;
+      top: -40px;
       display: flex;
       justify-content: space-around;
-      transition: all 0.3s;
-      transition-delay: 0.05s;
       height: 40px;
       overflow: hidden; }
       body header .navbar .nav-bottom.hidden {
@@ -125,7 +130,7 @@ body {
     body header .navbar {
       display: none; } }
 
-h1, h2, h3, .nav-item {
+h1, h2, h3, .nav-item, .links {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.2em; }
@@ -163,7 +168,7 @@ main {
     text-decoration: underline;
     text-decoration-color: #88FF00;
     text-underline-position: under; }
-  main .scroll {
+  main #main-scroll {
     flex-grow: 1;
     /*ensures that the container will take up the full height of the parent container*/
     overflow-y: auto;
@@ -175,12 +180,14 @@ main {
   main .side-scroll-container {
     display: flex;
     overflow-x: scroll;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory; }
     main .side-scroll-container .side-scroll {
       width: 100%;
       flex: none;
       scroll-snap-align: center;
-      margin-right: 20px; }
+      margin-right: 20px;
+      overflow-y: scroll; }
   main .bg-holder {
     position: absolute;
     top: 0;
@@ -224,5 +231,38 @@ p {
 
 .join {
   height: 100px; }
+
+.flex {
+  display: flex; }
+
+.column {
+  flex-direction: column; }
+
+.space-between {
+  justify-content: space-between; }
+
+.align-items-flex-end {
+  align-items: flex-end; }
+
+.left {
+  width: calc(200%/3); }
+
+.right {
+  width: calc(100%/3); }
+
+a {
+  color: white;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline;
+    text-underline-position: under;
+    cursor: pointer; }
+
+#projects a:hover {
+  text-decoration-color: #00FF00; }
+
+img {
+  object-fit: scale-down;
+  width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
