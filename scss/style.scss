@@ -7,6 +7,16 @@ html{
   height: 100%;
   box-sizing: border-box;
 }
+::-webkit-scrollbar {
+width: 0px; /* remove scrollbar space /
+background: transparent; / optional: just make scrollbar invisible /*/
+}
+/* optional: show position indicator in red */
+// ::-webkit-scrollbar-thumb {
+// background: #FF0000;
+// }
+
+
 body {
   position: fixed;
 }
@@ -68,22 +78,22 @@ body{
         text-decoration: underline;
         text-underline-position: under;
         cursor: pointer;
-        &:nth-child(1) {
+        &.ul-1 {
           text-decoration-color: $section-color-1;
         }
-        &:nth-child(2) {
+        &.ul-2 {
           text-decoration-color: $section-color-2;
         }
-        &:nth-child(3) {
+        &.ul-3 {
           text-decoration-color: $section-color-3;
         }
-        &:nth-child(4) {
+        &.ul-4 {
           text-decoration-color: $section-color-4;
         }
-        &:nth-child(5) {
+        &.ul-5 {
           text-decoration-color: $section-color-5;
         }
-        &:nth-child(6) {
+        &.ul-6 {
           text-decoration-color: $section-color-6;
         }
       }
@@ -107,18 +117,21 @@ body{
         height: 38px;
       }
       #nav-bottom-holder{
-        height: 40px;
+        height: 0;
         overflow: hidden;
         background: white;
         color: black;
         position: relative;
         top: -40px;
-        &.hidden{
-          height: 0;
-          overflow: hidden;
-          transition: all 0.3s;
-          transition-delay: 0.05s;
+        transition: all 0.3s;
+        transition-delay: 0.05s;
+        &.active{
+          height: 40px;
+
         }
+        // &.hidden{
+        //   overflow: hidden;
+        // }
       }
       .nav-bottom{
         // background: white;
@@ -292,44 +305,59 @@ main{
   height: 100%;
   display: flex;
   flex-direction: column;
-  .ul-1 {
-    text-decoration: underline;
-    text-decoration-color: $section-color-1;
-    text-underline-position: under;
-  }
-  .ul-2 {
-    text-decoration: underline;
-    text-decoration-color: $section-color-2;
-    text-underline-position: under;
-  }
-  .ul-3 {
-    text-decoration: underline;
-    text-decoration-color: $section-color-3;
-    text-underline-position: under;
-  }
-  .ul-4 {
-    text-decoration: underline;
-    text-decoration-color: $section-color-4;
-    text-underline-position: under;
-  }
-  .ul-5 {
-    text-decoration: underline;
-    text-decoration-color: $section-color-5;
-    text-underline-position: under;
-  }
-  .ul-6 {
-    text-decoration: underline;
-    text-decoration-color: $section-color-6;
-    text-underline-position: under;
-  }
+  // .ul-1 {
+  //   text-decoration: underline;
+  //   text-decoration-color: $section-color-1;
+  //   text-underline-position: under;
+  // }
+  // .ul-2 {
+  //   text-decoration: underline;
+  //   text-decoration-color: $section-color-2;
+  //   text-underline-position: under;
+  // }
+  // .ul-3 {
+  //   text-decoration: underline;
+  //   text-decoration-color: $section-color-3;
+  //   text-underline-position: under;
+  // }
+  // .ul-4 {
+  //   text-decoration: underline;
+  //   text-decoration-color: $section-color-4;
+  //   text-underline-position: under;
+  // }
+  // .ul-5 {
+  //   text-decoration: underline;
+  //   text-decoration-color: $section-color-5;
+  //   text-underline-position: under;
+  // }
+  // .ul-6 {
+  //   text-decoration: underline;
+  //   text-decoration-color: $section-color-6;
+  //   text-underline-position: under;
+  // }
+  // #about{
+  //   margin-top: 40px;
+  // }
   #main-scroll{
     flex-grow: 1;  /*ensures that the container will take up the full height of the parent container*/
     overflow-y: auto;  /*adds scroll to this container*/
     scroll-snap-type: y mandatory;
+    overflow-x: hidden;
+
+    // @media only screen and (max-width: $mobile-width) {
+    //   scroll-padding: 40px;
+    // }
+    // @media only screen and (max-width: $tablet-width) {
+    //   scroll-padding: 40px;
+    // }
+    // @media only screen and (max-width: $medium-width) {
+    //   scroll-padding: 80px;
+    // }
   }
   .content{
     padding: 20px;
-    background-color: $content-bg;
+    max-height: 90vh;
+    // background-color: $content-bg;
   }
   .side-scroll-container{
     display: flex;
@@ -352,54 +380,82 @@ main{
       // }
     }
   }
-  .bg-holder{
+  .bg-stripes{
     position: absolute;
     top: 0;
     left: 0;
     display: flex;
     overflow: hidden;
     z-index: -1;
-    .bg{
-      width: 600vw;
-      height: 100vh;
-
-      background:repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 20px,
-      rgba(0,0,0,0.2) 20px,
-      rgba(0,0,0,0.2) 40px
-      // ),linear-gradient(90deg,blue, magenta ,red, orange, yellow, green );
-      ),linear-gradient(90deg,#0000FF, #0088FF ,#00FFFF, #00FF88, #00FF00, #88FF00 );
-
-    }
-  }
-  @media only screen and (max-width: $tablet-width) {
-    .bg-holder{
-      // display: none;
-    }
-    .bg{
-      height: 700vh;
-      width: 100vw;
-      background:repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 20px,
-      rgba(0,0,0,0.2) 20px,
-      rgba(0,0,0,0.2) 40px
-      ),linear-gradient(0deg,#0000FF, #0088FF ,#00FFFF, #00FF88, #00FF00, #88FF00 );
-    }
-  }
-  section{
+    width: 300vw;
     height: 100vh;
+
+
+    background:repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 20px,
+    rgba(0,0,0,0.2) 20px,
+    rgba(0,0,0,0.2) 40px
+    );
+  }
+  .bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+
+    width: 600vw;
+    height: 600vh;
+    background: linear-gradient(90deg,#0000FF, #0088FF ,#00FFFF, #00FF88, #00FF00, #88FF00 );
+
+    // background:repeating-linear-gradient(
+    // 45deg,
+    // transparent,
+    // transparent 20px,
+    // rgba(0,0,0,0.2) 20px,
+    // rgba(0,0,0,0.2) 40px
+    // // ),linear-gradient(90deg,blue, magenta ,red, orange, yellow, green );
+
+  }
+  // @media only screen and (max-width: $tablet-width) {
+  //   .bg-stripes{
+  //     // display: none;
+  //   }
+  //   .bg{
+  //     height: 700vh;
+  //     width: 100vw;
+  //     background:repeating-linear-gradient(
+  //     45deg,
+  //     transparent,
+  //     transparent 20px,
+  //     rgba(0,0,0,0.2) 20px,
+  //     rgba(0,0,0,0.2) 40px
+  //     ),linear-gradient(0deg,#0000FF, #0088FF ,#00FFFF, #00FF88, #00FF00, #88FF00 );
+  //   }
+  // }
+  section{
+    padding-top: 100px;
+    height: calc( 100vh - 100px );
+    @media only screen and (max-width: $medium-width) {
+      padding-top: 77px;
+      height: calc( 100vh - 77px )
+    }
+    @media only screen and (max-width: $tablet-width) {
+      padding-top: 20px;
+      height: calc( 100vh - 20px );
+    }
+
     scroll-snap-align: start;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     .container{
-      height: 90vh;
+      width: 100vw;
       display: flex;
+      overflow-y: scroll;
+      background-color: rgba(0, 0, 0, 0.9);
       flex-direction: column;
       justify-content: center;
     //   padding-top: 90px;
@@ -436,6 +492,11 @@ p{
 .flex{
   display: flex;
 }
+.wrap{
+  flex-wrap: wrap;
+}
+
+
 .column{
   flex-direction: column;
 }
@@ -479,7 +540,40 @@ a{
 //     }
 //   }
 // }
+hr{
+  width: 100%;
+}
 img{
   object-fit: scale-down;
   width: 100%;
+}
+i{
+  font-size: 4rem;
+  width: 24%;
+  margin: 0.1em;
+  text-align: center;
+}
+.profile-icons{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  i{
+    // width: 100%;
+    font-size: 6rem;
+  }
+  img{
+    object-fit: scale-down;
+    margin: 0.1em;
+    width: 6rem;
+    height: 6rem;
+  }
+
+}
+.flask-logo{
+  width:6rem;
+  object-fit: scale-down;
+  margin: 0.1em;
+  background-color: white;
+  border-radius: 5px;
+
 }

@@ -1,6 +1,6 @@
 
-function toggleHidden(example){
 
+function toggleHidden(example){
   const elem = document.querySelector(example)
   elem.classList.toggle('hidden')
 }
@@ -22,6 +22,7 @@ function handleBottomScroll(section){
   document.querySelector(section+'-nav').classList.add('active')
 }
 
+
 window.onload = function(){
 
   //GET DOM ELEMENTS
@@ -33,10 +34,11 @@ window.onload = function(){
   const projectsScroll = document.querySelector('#projects-scroll')
   // listen for scroll event and call handleMainScroll function
 
-  const bgHolder = document.querySelector('.bg-holder')
-  // bgHolder.style.backgroundImage = 'repeating-linear-gradient(45deg, red, red 20px, black 20px, black 40px)'
+  const bgStripes = document.querySelector('.bg-stripes')
+  const bg = document.querySelector('.bg')
+  // bgStripes.style.backgroundImage = 'repeating-linear-gradient(45deg, red, red 20px, black 20px, black 40px)'
 
-  // bgHolder.style.backgroundImage = 'linear-gradient(#000000, #ffffff)'
+  // bgStripes.style.backgroundImage = 'linear-gradient(#000000, #ffffff)'
 
   //MAIN SECTIONS
   const aboutSection = document.querySelector('#about')
@@ -107,7 +109,8 @@ window.onload = function(){
   console.log('indicator.offsetWidth',indicator.clientWidth)
   const numberOfPics = 5
 
-  const bgTrack = ((numberOfPics*window.innerWidth)/100)
+  let bgTrack = ((numberOfPics*window.innerWidth)/100)
+  let bgStripesTrack = ((2*window.innerWidth)/100)
 
   //ADD EVENT LISTENERS
   mainScroll.addEventListener('scroll', (e)=>debounce(handleMainScroll,e))
@@ -116,6 +119,10 @@ window.onload = function(){
   projectsScroll.addEventListener('scroll', (e)=>debounce(handleSideScroll,e))
   educationScroll.addEventListener('scroll', (e)=>debounce(handleSideScroll,e))
 
+  burgerToggle = ()=>{
+    navbarTablet.classList.toggle('active')
+    burger.classList.toggle('change')
+  }
 
   let isTicking
   const debounce = (callback, evt) => {
@@ -180,16 +187,35 @@ window.onload = function(){
 
   function moveBg(scrollPercent){
     const bgMove = bgTrack * scrollPercent
-    bgHolder.style.left = -bgMove+'px'
+    // bgStripes.style.left = -bgMove+'px'
+    bg.style.left = -bgMove+'px'
+    console.log('movebg')
+
+    const bgStripesMove = bgStripesTrack * scrollPercent
+    bgStripes.style.left = -bgStripesMove+'px'
+
 
   }
 
+  function calcScrollY(){
+    return mainScroll.scrollTop || 0
+  }
+
+  function calcScrollPercent(scrollY){
+    return scrollY/(mainScroll.scrollHeight-window.innerHeight)*100
+  }
+
   function handleMainScroll() {
-    const scrollY = mainScroll.scrollTop || 0
-    const scrollPercent = scrollY/(mainScroll.scrollHeight-window.innerHeight)*100
+    const scrollY = calcScrollY()
+    const scrollPercent = calcScrollPercent(scrollY)
 
     moveIndicator(indicator, scrollPercent)
     moveBg(scrollPercent)
+
+    // showNavBar(){
+    //
+    //
+    // }
 
     if(inView(aboutSection, scrollY)){
       setActiveNav(mainNavArray,aboutNav)
@@ -222,6 +248,27 @@ window.onload = function(){
       setActiveNav(mainNavArray,contactNav)
       showBottomNav(bottomNavArray)
     }
+  }
+  windowResize = ()=>{
+    console.log('window resize')
+    // const bg = document.querySelector('.bg')
+    const scrollY = calcScrollY()
+    const scrollPercent = calcScrollPercent(scrollY)
+
+    bgTrack = ((numberOfPics*window.innerWidth)/100)
+    moveIndicator(indicator, scrollPercent)
+    moveBg(scrollPercent)
+
+    bgStripesTrack  = ((2*window.innerWidth)/100)
+
+    // bg.style.width = 6*window.innerWidth
+    // bg.style.height = window.innerHeight
+    //
+    // bg.style.width = 6*window.innerWidth
+    // bg.style.height = window.innerHeight
+
+    // console.log('bg.style.width',bg.clientWidth)
+
   }
 
   function handleSideScroll(e){

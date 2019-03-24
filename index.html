@@ -7,6 +7,7 @@
    <meta name="Description" content="James Benson web developer portfolio">
   <script src="app.js" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
   <link rel="stylesheet" href="style.css">
   <title>James Benson</title>
 </head>
@@ -18,53 +19,53 @@
       <div class="bar3"></div>
     </div>
     <nav class="navbar-tablet">
-      <div  class="nav-item " onclick="handleScroll('#about')">about</div>
-      <div  class="nav-item" onclick="handleScroll('#skills')">skills</div>
-      <div  class="nav-item" onclick="handleScroll('#experience')">experience</div>
-      <div  class="nav-item" onclick="handleScroll('#education')">education</div>
-      <div  class="nav-item" onclick="handleScroll('#projects')">projects</div>
+      <div  class="nav-item ul-1" onclick="handleScroll('#about')">about</div>
+      <div  class="nav-item ul-2" onclick="handleScroll('#skills')">skills</div>
+      <div  class="nav-item ul-3" onclick="handleScroll('#experience')">experience</div>
+      <div  class="nav-item ul-4" onclick="handleScroll('#education')">education</div>
+      <div  class="nav-item ul-5" onclick="handleScroll('#projects')">projects</div>
       <div  class="nav-item" onclick="handleScroll('#contact')">contact</div></nav>
     <nav class="navbar" >
       <div id="indicator" class='indicator'></div>
       <div class="nav-top">
-        <div id="about-nav" class="nav-item active" onclick="handleScroll('#about')">about</div>
-        <div id="skills-nav" class="nav-item" onclick="handleScroll('#skills')">skills</div>
-        <div id="experience-nav" class="nav-item" onclick="handleScroll('#experience')">experience</div>
-        <div id="education-nav" class="nav-item" onclick="handleScroll('#education')">education</div>
-        <div id="projects-nav" class="nav-item" onclick="handleScroll('#projects')">projects</div>
-        <div id="contact-nav" class="nav-item" onclick="handleScroll('#contact')">contact</div>
+        <div id="about-nav" class="nav-item active ul-1" onclick="handleScroll('#about')">about</div>
+        <div id="skills-nav" class="nav-item ul-2" onclick="handleScroll('#skills')">skills</div>
+        <div id="experience-nav" class="nav-item ul-3" onclick="handleScroll('#experience')">experience</div>
+        <div id="education-nav" class="nav-item ul-4" onclick="handleScroll('#education')">education</div>
+        <div id="projects-nav" class="nav-item ul-5" onclick="handleScroll('#projects')">projects</div>
+        <div id="contact-nav" class="nav-item ul-6" onclick="handleScroll('#contact')">contact</div>
       </div>
       <div id="nav-bottom-holder">
         <div id="bottom-indicator" class='indicator'></div>
         <div id="nav-bottom-projects" class="nav-bottom hidden">
-          <div id="project-1-nav" class="nav-item" onclick="handleScroll('#project1')">JamDex</div>
-          <div id="project-2-nav" class="nav-item" onclick="handleScroll('#project2')">Pepino</div>
-          <div id="project-3-nav" class="nav-item" onclick="handleScroll('#project3')">Health&Tasty</div>
-          <div id="project-4-nav" class="nav-item" onclick="handleScroll('#project4')">Nocturn</div>
+          <div id="project-1-nav" class="nav-item ul-5" onclick="handleScroll('#project1')">JamDex</div>
+          <div id="project-2-nav" class="nav-item ul-5" onclick="handleScroll('#project2')">Pepino</div>
+          <div id="project-3-nav" class="nav-item ul-5" onclick="handleScroll('#project3')">Health&Tasty</div>
+          <div id="project-4-nav" class="nav-item ul-5" onclick="handleScroll('#project4')">Nocturn</div>
         </div>
         <div id="nav-bottom-experience" class="nav-bottom hidden">
-          <div id="experience-1-nav" class="nav-item" onclick="handleScroll('#experience1')">GA</div>
-          <div id="experience-2-nav" class="nav-item" onclick="handleScroll('#experience2')">Micropower</div>
-          <div id="experience-3-nav" class="nav-item" onclick="handleScroll('#experience3')">Sound</div>
-          <div id="experience-4-nav" class="nav-item" onclick="handleScroll('#experience4')">Microsoft</div>
+          <div id="experience-1-nav" class="nav-item ul-3" onclick="handleScroll('#experience1')">GA</div>
+          <div id="experience-2-nav" class="nav-item ul-3" onclick="handleScroll('#experience2')">Micropower</div>
+          <div id="experience-3-nav" class="nav-item ul-3" onclick="handleScroll('#experience3')">Sound</div>
+          <div id="experience-4-nav" class="nav-item ul-3" onclick="handleScroll('#experience4')">Microsoft</div>
         </div>
         <div id="nav-bottom-education" class="nav-bottom hidden">
-          <div id="education-1-nav" class="nav-item" onclick="handleScroll('#education1')">GA</div>
-          <div id="education-2-nav" class="nav-item" onclick="handleScroll('#education2')">NFTS</div>
-          <div id="education-3-nav" class="nav-item" onclick="handleScroll('#education3')">University</div>
+          <div id="education-1-nav" class="nav-item ul-4" onclick="handleScroll('#education1')">GA</div>
+          <div id="education-2-nav" class="nav-item ul-4" onclick="handleScroll('#education2')">NFTS</div>
+          <div id="education-3-nav" class="nav-item ul-4" onclick="handleScroll('#education3')">University</div>
         </div>
         <div id="nav-bottom-skills" class="nav-bottom hidden">
-          <div id="skills-1-nav" class="nav-item" onclick="handleScroll('#skills1')">Technical</div>
-          <div id="skills-2-nav" class="nav-item" onclick="handleScroll('#skills2')">Soft</div>
+          <div id="skills-1-nav" class="nav-item ul-2" onclick="handleScroll('#skills1')">Technical</div>
+          <div id="skills-2-nav" class="nav-item ul-2" onclick="handleScroll('#skills2')">Soft</div>
         </div>
       </div>
     </nav>
 
   </header>
   <main>
-    <div class="bg-holder">
-      <div class="bg"></div>
+    <div class="bg-stripes">
     </div>
+    <div class="bg"></div>
     <div id="main-scroll">
       <section id="about">
         <!-- <h2><span class="ul-1">About</span></h2> -->
@@ -73,18 +74,23 @@
             <h3>
               Web developer | London
             </h3>
+            <hr/>
             <div>
               <p>I have recently finished a Web Development Immersive course at General Assembly London. It was an intensive 12 week course the took me from a beginner in HTML and JavaScript, to deploying Full-Stack applications built with tools such as React, MongoDB, Express and Node.js. The pace of new topics and content was fierce but I found it to be one of the most rewarding experiences of my life.</p>
 
               <p>Previously, I worked for Micro-Power Electronics Ltd., a small electronics company that creates equipment for the power industry. I was tasked with creating a dashboard to show data from industrial sensors. Through my own learning and internal assistance, I was able to gain the skills necessary to integrate the data and create client side visualisations. I discovered I really enjoyed working in JavaScript and learning web technologies. This created a desire to formalise my training as a full stack developer and why I joined General Assembly.</p>
 
               <p>I am looking for a workplace that can provide me with challenges and surround me with experienced colleagues who I can learn from. I want to be able to progress as a developer by learning new skills and by being given greater responsibilities.</p>
+              <hr/>
+              <div class="profile-icons">
+                <a href="https://github.com/jjbenson85" target="_blank" rel="noreferrer"><i class="devicon-github-plain-wordmark"></i></a>
+                <a href="https://linkedin.com/in/jjbenson" target="_blank" rel="noreferrer"><img src="images/linkedin.png" alt="LinkedIn logo"></a>
+              </div>
 
             </div>
           </div>
         </div>
       </section>
-      <div class="join"></div>
       <section id="skills">
         <!-- <h2><span class="ul-2">Skills</span></h2> -->
         <div class="container">
@@ -92,19 +98,28 @@
             <div id="skills1" class="side-scroll">
               <div class="content">
                 <h3>Technical Skills</h3>
-                <p>Web Technologies & Frameworks: React, HTML5, CSS3.0, </p>
-                <p>Scripts/UI: JavaScript, JQuery, AJAX, Bulma, BootStrap</p>
-                <p>Database and ORM: MongoDB, Mongoose</p>
+                <hr/>
+                <div class="flex wrap space-between">
+                  <i class="devicon-react-original-wordmark xcolored"></i><i class="devicon-html5-plain-wordmark xcolored"></i><i class="devicon-css3-plain-wordmark xcolored"></i>
+                  <i class="devicon-javascript-plain xcolored"></i><i class="devicon-jquery-plain-wordmark xcolored"></i><i class="devicon-bootstrap-plain-wordmark xcolored"></i>
+                  <i class="devicon-mongodb-plain-wordmark xcolored"></i><i class="devicon-postgresql-plain-wordmark xcolored"></i>
+                  <i class="devicon-webpack-plain-wordmark xcolored"></i>
+                  <i class="devicon-git-plain-wordmark xcolored"></i><i class="devicon-atom-original-wordmark xcolored"></i>
+                  <i class="devicon-heroku-plain-wordmark xcolored"></i>
+              </div>
+                <!-- <p>Web Technologies & Frameworks: <i class="devicon-react-original-wordmark xcolored"></i><i class="devicon-html5-plain-wordmark xcolored"></i><i class="devicon-css3-plain-wordmark xcolored"></i> </p>
+                <p>Scripts/UI: <i class="devicon-javascript-plain xcolored"></i><i class="devicon-jquery-plain-wordmark xcolored"></i><i class="devicon-bootstrap-plain-wordmark xcolored"></i></p>
+                <p>Database and ORM: <i class="devicon-mongodb-plain-wordmark xcolored"></i><i class="devicon-postgresql-plain-wordmark xcolored"></i></p>
                 <p>Web Debug Tools: Chrome developer tools, React developer tools</p>
-                <p>Application/Web Server: Webpack?</p>
-                <p>Versioning and other tools: Git,</p>
-                <p>Deployment Tools: Heroku</p>
+                <p>Application/Web Server: <i class="devicon-webpack-plain-wordmark xcolored"></i></p>
+                <p>Versioning and other tools: <i class="devicon-git-plain-wordmark xcolored"></i><i class="devicon-atom-original-wordmark xcolored"></i></p>
+                <p>Deployment Tools: <i class="devicon-heroku-plain-wordmark xcolored"></i></p> -->
               </div>
             </div>
             <div id="skills2" class="side-scroll">
               <div class="content">
                 <h3>Soft Skills:</h3>
-
+                <hr/>
                 <h3>Communication & Teamwork</h3>
                 <p>Respect, Empathy, Listening, Conflict Management, Cooperation, Negotiating</p>
 
@@ -122,7 +137,6 @@
           </div>
         </div>
       </section>
-      <div class="join"></div>
       <section id="experience">
         <!-- <h2><span class="ul-3">Experience</span></h2> -->
         <div class="container">
@@ -130,6 +144,7 @@
             <div id="experience1" class="side-scroll">
               <div class="content">
                 <h3>General Assembly</h3>
+                <hr/>
                 <h4>Student General Assembly (Nov 2018 - March 2019)</h4>
                 <p>Web development immersive course, a full time 12-week course that covered best practices and industry standards in programming fundamentals, product development basics, front-end development, back-end web development and team collaboration strategies.
                 </p>
@@ -147,12 +162,14 @@
             <div id="experience3" class="side-scroll">
               <div class="content">
                 <h3>Boom Operator</h3>
+                <hr/>
                 <h4>Various, London (Jan/2013–November/2016)</h4>
                 <p>I worked on feature films and TV shows such as Poirot, Pokemon: Detective Pikachu, and Game of Thrones.</p>
                 <p>I would have to physically hold microphones above actors on set, hide microphones in actors clothing and control all unwanted external noise. I would often interact with other departments to ensure the best audio recordings possible.
                 </p>
 
                 <h3>Sound Recordist</h3>
+                <hr/>
                 <h4>Various , London(July/2009 - August/2011)</h4>
                 <p>Before attending film school I worked on many short and low budget feature films.
                   I had to be the sole representative of the sound department and ensure good quality audio recordings.
@@ -162,6 +179,7 @@
             <div id="experience4" class="side-scroll">
               <div class="content">
                 <h3>Web Producer</h3>
+                <hr/>
                 <h4>Microsoft, London (July/2008–July/2009)</h4>
                 <p>I worked for MSN, the Microsoft web portal that provides News, Sport and Entertainment news.
                   created custom web-page layouts using an in-house content management system to put editorial content onto the web. I also recorded podcasts and filmed interviews.
@@ -171,7 +189,6 @@
           </div>
         </div>
       </section>
-      <div class="join"></div>
       <section id="education">
         <!-- <h2><span class="ul-4">Education</span></h2> -->
         <div class="container">
@@ -179,6 +196,7 @@
             <div id="education1" class="side-scroll">
               <div class="content">
                 <h3>GENERAL ASSEMBLY, London, (November/2018–March/2019)</h3>
+                <hr/>
                 <h4>Web Development Immersive.</h4>
                 <p>See here!</p>
               </div>
@@ -186,6 +204,7 @@
             <div id="education2" class="side-scroll">
               <div class="content">
                 <h3>NATIONAL FILM & TELEVISION SCHOOL, (September/2011–Jan/2013)</h3>
+                <hr/>
                 <h4>Post-Graduate Diploma - Sound Recording for Film and Television.</h4>
                 <p>This was a full time course that lasted for 15 months. I learnt how to record sound on set for scripted TV shows, as well as documentaries and live television. During my time I worked on two graduation films and various other short films and was given access to industry professionals which eventually lead to my career in the film business.</p>
               </div>
@@ -193,6 +212,7 @@
             <div id="education3" class="side-scroll">
               <div class="content">
                 <h3>UNIVERSITY OF HERTFORDSHIRE, (September/2005–July/2008)</h3>
+                <hr/>
                 <h4>BA 1st Class Honours - Sound Design Technology.</h4>
                 <p>This course combined music technology with some sound design and computing. As well as learning acoustics and other audio related topics, we also learnt Flash and Director. These programs were an introduction to coding and first sparked my interest in coding as a potential career.</p>
               </div>
@@ -200,7 +220,6 @@
           </div>
         </div>
       </section>
-      <div class="join"></div>
       <section id="projects">
         <!-- <h2><span class="ul-5">Projects</span></h2> -->
         <div class="container">
@@ -210,8 +229,9 @@
               <div class="content flex column">
                 <div class="flex space-between">
                   <h3>JamDex</h3>
-                  <ul>PostgreSQL - Flask - React - Pipenv - Enzyme // Pair // 7 Days</ul>
+                  <ul><i class="devicon-postgresql-plain-wordmark xcolored"></i><img class="flask-logo" src="images/flask.png" alt="flask logo"><i class="devicon-react-original-wordmark xcolored"></i><i class="devicon-python-plain-wordmark xcolored"></i> <i class="devicon-mocha-plain xcolored"></i> // Pair // 7 Days</ul>
                 </div>
+                <hr/>
                 <div class="flex">
                   <div class="left">
                     <div class="description">
@@ -242,8 +262,9 @@
               <div class="content flex column">
                 <div class="flex space-between">
                   <h3>Pepino</h3>
-                  <ul> Mongo - Express - React - Node.js - Mocha - Chai // Group // 7 Days</ul>
+                  <ul> <i class="devicon-mongodb-plain-wordmark xcolored"></i><i class="devicon-express-original xcolored"></i><i class="devicon-react-original-wordmark xcolored"></i><i class="devicon-nodejs-plain-wordmark xcolored"></i><i class="devicon-mocha-plain xcolored"></i> // Group // 7 Days</ul>
                 </div>
+                <hr/>
                 <div class="flex">
                   <div class="left">
                     <div class="description">
@@ -282,8 +303,9 @@
               <div class="content flex column">
                 <div class="flex space-between">
                   <h3>Health & Tasty</h3>
-                  <ul>HTML - SCSS  - JavaScript - React - Web APIs // Pair // 2 Days</ul>
+                  <ul><i class="devicon-html5-plain-wordmark xcolored"></i><i class="devicon-sass-original xcolored"></i><i class="devicon-javascript-plain xcolored"></i><i class="devicon-react-original-wordmark xcolored"></i>// Pair // 2 Days</ul>
                 </div>
+                <hr/>
                 <div class="flex">
                   <div class="left">
                     <div class="description">
@@ -317,16 +339,17 @@
               <div class="content flex column">
                 <div class="flex space-between">
                   <h3>Nocturn</h3>
-                  <ul>HTML - SCSS  - JavaScript - jQuery // Solo // 7 Days</ul>
+                  <ul><i class="devicon-html5-plain-wordmark xcolored"></i><i class="devicon-sass-original xcolored"></i><i class="devicon-javascript-plain xcolored"></i><i class="devicon-jquery-plain-wordmark xcolored"></i>// Solo // 7 Days</ul>
                 </div>
+                <hr/>
                 <div class="flex">
                   <div class="left">
                     <div class="description">
-                      <p>Health & Tasty is a location based restaurant finder that displays FSA Hygiene ratings.</p>
+                      <p>Nocturn is solo or two player statergy game.</p>
 
                       <!-- <img src="images/Nocturn.png" alt="Noctun screen shot"> -->
 
-                      <p>Nocturn is loosely based on the classic board game Reversi/Othello. Players take turns to change a neutral cube to their colour. If they manage to bookend a line of their opponents pieces, the pieces are captured and change to the players colour.</p>
+                      <p>Loosely based on the classic board game Reversi/Othello, players take turns to change a neutral cube to their colour. If they manage to bookend a line of their opponents pieces, the pieces are captured and change to the players colour.</p>
                     </div>
                     <div class="links  flex column align-items-flex-end">
                       <a class="projects" href="http://github.com/jjbenson85/WDI-Project-01" target="_blank" rel="noreferrer">Github: github.com/jjbenson85/WDI-Project-01</a>
@@ -352,12 +375,12 @@
           </div>
         </div>
       </section>
-      <div class="join"></div>
       <section id="contact">
         <!-- <h2><span class="ul-6">Contact</span></h2> -->
         <div class="container">
           <div>
             <div class="content">
+
               <p>Email: <email>jjbenson85@gmail.com</email></p>
               <tel></tel>
               <p>GitHub: <a href="https://github.com/jjbenson85" target="_blank" rel="noreferrer">https://github.com/jjbenson85</a></p>
@@ -424,10 +447,10 @@
   // listen for scroll event and call animate function
   scroller.addEventListener("scroll", (e)=>debounce(animate,e));
 
-  const bgHolder = document.querySelector('.bg-holder')
-  // bgHolder.style.backgroundImage = "repeating-linear-gradient(45deg, red, red 20px, black 20px, black 40px)"
+  const bgStripes = document.querySelector('.bg-stripes')
+  // bgStripes.style.backgroundImage = "repeating-linear-gradient(45deg, red, red 20px, black 20px, black 40px)"
 
-  // bgHolder.style.backgroundImage = 'linear-gradient(#000000, #ffffff)'
+  // bgStripes.style.backgroundImage = 'linear-gradient(#000000, #ffffff)'
   const aboutSection = document.querySelector('#about')
   const projectsSection = document.querySelector('#projects')
   const skillsSection = document.querySelector('#skills')
@@ -525,27 +548,27 @@
     indicator.style.left = indicatorLeft+"px"
 
     bgMove = bgTrack * scrollPercent
-    bgHolder.style.left = -bgMove+"px"
+    bgStripes.style.left = -bgMove+"px"
 
     showBottomNav()
     // if(inView(aboutSection, scrollY)){
-    //   bgHolder.style.backgroundImage = "repeating-linear-gradient(45deg, red, red 20px, black 20px, black 40px)"
+    //   bgStripes.style.backgroundImage = "repeating-linear-gradient(45deg, red, red 20px, black 20px, black 40px)"
     //  }
     if(inView(projectsSection, scrollY)){
       showBottomNav('#nav-projects')
-      // bgHolder.style.backgroundImage = "repeating-linear-gradient(45deg, red, red 20px, black 20px, black 40px)"
+      // bgStripes.style.backgroundImage = "repeating-linear-gradient(45deg, red, red 20px, black 20px, black 40px)"
      }
     if(inView(skillsSection, scrollY)){
       showBottomNav('#nav-skills')
-      // bgHolder.style.backgroundImage = "repeating-linear-gradient(45deg, yellow, yellow 20px, black 20px, black 40px)"
+      // bgStripes.style.backgroundImage = "repeating-linear-gradient(45deg, yellow, yellow 20px, black 20px, black 40px)"
      }
     if(inView(experienceSection, scrollY)){
       showBottomNav('#nav-experience')
-      // bgHolder.style.backgroundImage = "repeating-linear-gradient(45deg, green, green 20px, black 20px, black 40px)"
+      // bgStripes.style.backgroundImage = "repeating-linear-gradient(45deg, green, green 20px, black 20px, black 40px)"
      }
     if(inView(educationSection, scrollY)){
       showBottomNav('#nav-education')
-      // bgHolder.style.backgroundImage = "repeating-linear-gradient(45deg, blue, blue 20px, black 20px, black 40px)"
+      // bgStripes.style.backgroundImage = "repeating-linear-gradient(45deg, blue, blue 20px, black 20px, black 40px)"
      }
   }
 

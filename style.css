@@ -2,6 +2,12 @@ html {
   height: 100%;
   box-sizing: border-box; }
 
+::-webkit-scrollbar {
+  width: 0px;
+            /* remove scrollbar space /
+background: transparent; / optional: just make scrollbar invisible /*/ }
+
+/* optional: show position indicator in red */
 body {
   position: fixed; }
 
@@ -42,17 +48,17 @@ body {
         text-decoration: underline;
         text-underline-position: under;
         cursor: pointer; }
-        body header .nav-item:hover:nth-child(1), body header .nav-item.active:nth-child(1) {
+        body header .nav-item:hover.ul-1, body header .nav-item.active.ul-1 {
           text-decoration-color: #0000FF; }
-        body header .nav-item:hover:nth-child(2), body header .nav-item.active:nth-child(2) {
+        body header .nav-item:hover.ul-2, body header .nav-item.active.ul-2 {
           text-decoration-color: #0088FF; }
-        body header .nav-item:hover:nth-child(3), body header .nav-item.active:nth-child(3) {
+        body header .nav-item:hover.ul-3, body header .nav-item.active.ul-3 {
           text-decoration-color: #00FFFF; }
-        body header .nav-item:hover:nth-child(4), body header .nav-item.active:nth-child(4) {
+        body header .nav-item:hover.ul-4, body header .nav-item.active.ul-4 {
           text-decoration-color: #00FF88; }
-        body header .nav-item:hover:nth-child(5), body header .nav-item.active:nth-child(5) {
+        body header .nav-item:hover.ul-5, body header .nav-item.active.ul-5 {
           text-decoration-color: #00FF00; }
-        body header .nav-item:hover:nth-child(6), body header .nav-item.active:nth-child(6) {
+        body header .nav-item:hover.ul-6, body header .nav-item.active.ul-6 {
           text-decoration-color: #88FF00; }
     body header .navbar-tablet {
       display: none; }
@@ -64,17 +70,16 @@ body {
       justify-content: space-around;
       height: 38px; }
     body header .navbar #nav-bottom-holder {
-      height: 40px;
+      height: 0;
       overflow: hidden;
       background: white;
       color: black;
       position: relative;
-      top: -40px; }
-      body header .navbar #nav-bottom-holder.hidden {
-        height: 0;
-        overflow: hidden;
-        transition: all 0.3s;
-        transition-delay: 0.05s; }
+      top: -40px;
+      transition: all 0.3s;
+      transition-delay: 0.05s; }
+      body header .navbar #nav-bottom-holder.active {
+        height: 40px; }
     body header .navbar .nav-bottom {
       position: relative;
       top: -40px;
@@ -145,39 +150,16 @@ main {
   height: 100%;
   display: flex;
   flex-direction: column; }
-  main .ul-1 {
-    text-decoration: underline;
-    text-decoration-color: #0000FF;
-    text-underline-position: under; }
-  main .ul-2 {
-    text-decoration: underline;
-    text-decoration-color: #0088FF;
-    text-underline-position: under; }
-  main .ul-3 {
-    text-decoration: underline;
-    text-decoration-color: #00FFFF;
-    text-underline-position: under; }
-  main .ul-4 {
-    text-decoration: underline;
-    text-decoration-color: #00FF88;
-    text-underline-position: under; }
-  main .ul-5 {
-    text-decoration: underline;
-    text-decoration-color: #00FF00;
-    text-underline-position: under; }
-  main .ul-6 {
-    text-decoration: underline;
-    text-decoration-color: #88FF00;
-    text-underline-position: under; }
   main #main-scroll {
     flex-grow: 1;
     /*ensures that the container will take up the full height of the parent container*/
     overflow-y: auto;
     /*adds scroll to this container*/
-    scroll-snap-type: y mandatory; }
+    scroll-snap-type: y mandatory;
+    overflow-x: hidden; }
   main .content {
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.9); }
+    max-height: 90vh; }
   main .side-scroll-container {
     display: flex;
     overflow-x: scroll;
@@ -189,32 +171,45 @@ main {
       scroll-snap-align: center;
       margin-right: 20px;
       overflow-y: scroll; }
-  main .bg-holder {
+  main .bg-stripes {
     position: absolute;
     top: 0;
     left: 0;
     display: flex;
     overflow: hidden;
-    z-index: -1; }
-    main .bg-holder .bg {
-      width: 600vw;
-      height: 100vh;
-      background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0, 0, 0, 0.2) 20px, rgba(0, 0, 0, 0.2) 40px), linear-gradient(90deg, #0000FF, #0088FF, #00FFFF, #00FF88, #00FF00, #88FF00); }
-  @media only screen and (max-width: 768px) {
-    main .bg {
-      height: 700vh;
-      width: 100vw;
-      background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0, 0, 0, 0.2) 20px, rgba(0, 0, 0, 0.2) 40px), linear-gradient(0deg, #0000FF, #0088FF, #00FFFF, #00FF88, #00FF00, #88FF00); } }
-  main section {
+    z-index: -1;
+    width: 300vw;
     height: 100vh;
+    background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0, 0, 0, 0.2) 20px, rgba(0, 0, 0, 0.2) 40px); }
+  main .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    width: 600vw;
+    height: 600vh;
+    background: linear-gradient(90deg, #0000FF, #0088FF, #00FFFF, #00FF88, #00FF00, #88FF00); }
+  main section {
+    padding-top: 100px;
+    height: calc( 100vh - 100px );
     scroll-snap-align: start;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center; }
+    @media only screen and (max-width: 1000px) {
+      main section {
+        padding-top: 77px;
+        height: calc( 100vh - 77px ); } }
+    @media only screen and (max-width: 768px) {
+      main section {
+        padding-top: 20px;
+        height: calc( 100vh - 20px ); } }
     main section .container {
-      height: 90vh;
+      width: 100vw;
       display: flex;
+      overflow-y: scroll;
+      background-color: rgba(0, 0, 0, 0.9);
       flex-direction: column;
       justify-content: center; }
 
@@ -235,6 +230,9 @@ p {
 
 .flex {
   display: flex; }
+
+.wrap {
+  flex-wrap: wrap; }
 
 .column {
   flex-direction: column; }
@@ -262,8 +260,36 @@ a {
 #projects a:hover {
   text-decoration-color: #00FF00; }
 
+hr {
+  width: 100%; }
+
 img {
   object-fit: scale-down;
   width: 100%; }
+
+i {
+  font-size: 4rem;
+  width: 24%;
+  margin: 0.1em;
+  text-align: center; }
+
+.profile-icons {
+  width: 100vw;
+  display: flex;
+  justify-content: center; }
+  .profile-icons i {
+    font-size: 6rem; }
+  .profile-icons img {
+    object-fit: scale-down;
+    margin: 0.1em;
+    width: 6rem;
+    height: 6rem; }
+
+.flask-logo {
+  width: 6rem;
+  object-fit: scale-down;
+  margin: 0.1em;
+  background-color: white;
+  border-radius: 5px; }
 
 /*# sourceMappingURL=style.css.map */
