@@ -7,7 +7,6 @@ html {
             /* remove scrollbar space /
 background: transparent; / optional: just make scrollbar invisible /*/ }
 
-/* optional: show position indicator in red */
 body {
   position: fixed; }
 
@@ -15,7 +14,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   box-sizing: border-box;
-  color: white;
+  color: black;
   overflow: hidden;
   height: 100%;
   width: 100%; }
@@ -24,21 +23,20 @@ body {
     position: fixed;
     top: 10px;
     right: 20px;
-    color: white; }
+    color: black; }
     body header .indicator {
-      height: 38px;
+      height: 40px;
       width: 140px;
       left: 0px;
       position: relative;
-      z-index: 2; }
+      background: white;
+      position: relative;
+      z-index: 1; }
     body header #indicator {
-      border: 1px solid white;
       top: 0px; }
-    body header #bottom-indicator {
-      border: 1px solid black; }
-    body header #burger {
-      display: none; }
     body header .nav-item {
+      position: relative;
+      z-index: 1;
       display: inline-block;
       margin: 10px;
       width: 120px;
@@ -49,101 +47,61 @@ body {
         text-underline-position: under;
         cursor: pointer; }
         body header .nav-item:hover.ul-1, body header .nav-item.active.ul-1 {
-          text-decoration-color: #0000FF; }
+          text-decoration-color: #eac435; }
         body header .nav-item:hover.ul-2, body header .nav-item.active.ul-2 {
-          text-decoration-color: #0088FF; }
+          text-decoration-color: #345995; }
         body header .nav-item:hover.ul-3, body header .nav-item.active.ul-3 {
-          text-decoration-color: #00FFFF; }
+          text-decoration-color: #e40066; }
         body header .nav-item:hover.ul-4, body header .nav-item.active.ul-4 {
-          text-decoration-color: #00FF88; }
+          text-decoration-color: #03cea4; }
         body header .nav-item:hover.ul-5, body header .nav-item.active.ul-5 {
-          text-decoration-color: #00FF00; }
+          text-decoration-color: #fb4d3d; }
         body header .nav-item:hover.ul-6, body header .nav-item.active.ul-6 {
-          text-decoration-color: #88FF00; }
+          text-decoration-color: #fb4d3d; }
     body header .navbar-tablet {
       display: none; }
-    body header .navbar .nav-top {
-      background: black;
+    body header .navbar
+    .nav-top {
+      box-shadow: 15px 15px rgba(60, 60, 60, 0.5);
+      background: #e6e6e6;
       position: relative;
       top: -40px;
       display: flex;
-      justify-content: space-around;
-      height: 38px; }
-    body header .navbar #nav-bottom-holder {
+      justify-content: space-between;
+      height: 40px; }
+    body header #nav-bottom-holder {
+      box-shadow: 15px 15px rgba(60, 60, 60, 0.5);
+      background: #e6e6e6;
       height: 0;
       overflow: hidden;
-      background: white;
-      color: black;
       position: relative;
       top: -40px;
       transition: all 0.3s;
       transition-delay: 0.05s; }
-      body header .navbar #nav-bottom-holder.active {
+      body header #nav-bottom-holder.active {
         height: 40px; }
-    body header .navbar .nav-bottom {
+    body header .nav-bottom {
       position: relative;
       top: -40px;
       display: flex;
       justify-content: space-around;
       height: 40px;
       overflow: hidden; }
-      body header .navbar .nav-bottom.hidden {
+      body header .nav-bottom.hidden {
         height: 0;
         overflow: hidden;
         transition: all 0.3s;
         transition-delay: 0.05s; }
-  @media only screen and (max-width: 1000px) {
-    body header {
-      position: fixed;
-      height: 40px;
-      top: 0px;
-      right: 0px;
-      width: 100vw; } }
-  @media only screen and (max-width: 768px) {
-    body header #burger {
-      position: fixed;
-      right: 4px;
-      top: 4px;
-      padding: 10px;
-      background: black;
-      display: inline-block;
-      cursor: pointer; }
-      body header #burger .bar1, body header #burger .bar2, body header #burger .bar3 {
-        width: 35px;
-        height: 5px;
-        background-color: #fff;
-        margin: 6px 0;
-        transition: 0.4s; }
-      body header #burger.change .bar1 {
-        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-        transform: rotate(-45deg) translate(-9px, 6px); }
-      body header #burger.change .bar2 {
-        opacity: 0; }
-      body header #burger.change .bar3 {
-        -webkit-transform: rotate(45deg) translate(-8px, -8px);
-        transform: rotate(45deg) translate(-8px, -8px); }
-    body header .indicator {
-      display: none; }
-    body header .navbar-tablet {
-      display: flex;
-      max-height: 0;
-      transition: all 1s;
-      flex-direction: column;
-      background-color: black;
-      overflow: hidden; }
-      body header .navbar-tablet.active {
-        max-height: 500px; }
-    body header .navbar {
-      display: none; } }
 
 h1, h2, h3, .nav-item, .links {
+  text-shadow: 1px 1px 3px rgba(60, 60, 60, 0.5);
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.2em; }
 
 span {
   display: inline-block;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: white;
   padding: 20px; }
 
 main {
@@ -163,14 +121,26 @@ main {
   main .side-scroll-container {
     display: flex;
     overflow-x: scroll;
-    overflow-y: hidden;
     scroll-snap-type: x mandatory; }
     main .side-scroll-container .side-scroll {
       width: 100%;
       flex: none;
       scroll-snap-align: center;
       margin-right: 20px;
-      overflow-y: scroll; }
+      margin-bottom: 20px;
+      overflow-y: scroll;
+      background: white;
+      box-shadow: 15px 15px rgba(60, 60, 60, 0.5); }
+  main .jj {
+    position: absolute;
+    bottom: calc( -100vh + 1.5em );
+    right: calc( -100vw + 7em );
+    width: 100%;
+    height: 100%;
+    font-size: 4em;
+    color: rgba(128, 128, 128, 0.1);
+    user-select: none;
+    z-index: -1; }
   main .bg-stripes {
     position: absolute;
     top: 0;
@@ -178,22 +148,14 @@ main {
     display: flex;
     overflow: hidden;
     z-index: -1;
-    width: 300vw;
+    width: 500vw;
     height: 100vh;
-    background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0, 0, 0, 0.2) 20px, rgba(0, 0, 0, 0.2) 40px); }
-  main .bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -2;
-    width: 600vw;
-    height: 600vh;
-    background: linear-gradient(90deg, #0000FF, #0088FF, #00FFFF, #00FF88, #00FF00, #88FF00); }
+    background: linear-gradient(-225deg, #fb4d3d 0% 5%, #eac435 5% 30%, #345995 30% 55%, #e40066 55% 75%, #03cea4 75% 100%); }
   main section {
     padding-top: 100px;
     height: calc( 100vh - 100px );
     scroll-snap-align: start;
-    color: white;
+    color: black;
     display: flex;
     flex-direction: column;
     justify-content: center; }
@@ -201,15 +163,16 @@ main {
       main section {
         padding-top: 77px;
         height: calc( 100vh - 77px ); } }
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 500px) {
       main section {
         padding-top: 20px;
         height: calc( 100vh - 20px ); } }
     main section .container {
+      box-shadow: 15px 15px rgba(60, 60, 60, 0.5);
       width: 100vw;
       display: flex;
       overflow-y: scroll;
-      background-color: rgba(0, 0, 0, 0.9);
+      background-color: white;
       flex-direction: column;
       justify-content: center; }
 
@@ -240,6 +203,9 @@ p {
 .space-between {
   justify-content: space-between; }
 
+.space-around {
+  justify-content: space-around; }
+
 .align-items-flex-end {
   align-items: flex-end; }
 
@@ -250,15 +216,26 @@ p {
   width: calc(100%/3); }
 
 a {
-  color: white;
+  color: black;
   text-decoration: none; }
   a:hover {
     text-decoration: underline;
     text-underline-position: under;
     cursor: pointer; }
 
+#about .container, #contact .container {
+  align-items: center; }
+  #about .container .content, #contact .container .content {
+    max-width: 600px; }
+
+#projects .side-scroll, #experience .side-scroll {
+  display: flex;
+  justify-content: center; }
+  #projects .side-scroll .content, #experience .side-scroll .content {
+    max-width: 800px; }
+
 #projects a:hover {
-  text-decoration-color: #00FF00; }
+  text-decoration-color: #345995; }
 
 hr {
   width: 100%; }
@@ -274,7 +251,6 @@ i {
   text-align: center; }
 
 .profile-icons {
-  width: 100vw;
   display: flex;
   justify-content: center; }
   .profile-icons i {
@@ -291,5 +267,67 @@ i {
   margin: 0.1em;
   background-color: white;
   border-radius: 5px; }
+
+.button {
+  box-shadow: 5px 5px rgba(60, 60, 60, 0.5);
+  display: inline;
+  background: white;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px; }
+
+@media only screen and (min-width: 1000px) {
+  body header {
+    position: fixed;
+    height: 40px;
+    top: 10px;
+    right: 10px; }
+    body header #burger {
+      display: none; } }
+@media only screen and (max-width: 1000px) {
+  body header {
+    top: 0px;
+    left: 0px;
+    width: 100vw; } }
+@media only screen and (max-width: 768px) {
+  body header {
+    top: 0;
+    left: 0; }
+    body header #burger {
+      position: fixed;
+      right: 4px;
+      top: 4px;
+      padding: 8px;
+      background: black;
+      display: inline-block;
+      cursor: pointer; }
+      body header #burger .bar1, body header #burger .bar2, body header #burger .bar3 {
+        width: 25px;
+        height: 2px;
+        background-color: #fff;
+        margin: 4px 0;
+        transition: 0.4s; }
+      body header #burger.change .bar1 {
+        transform: rotate(-45deg) translate(-6px, 4px); }
+      body header #burger.change .bar2 {
+        opacity: 0; }
+      body header #burger.change .bar3 {
+        transform: rotate(45deg) translate(-4px, -3px); }
+    body header .indicator {
+      display: none; }
+    body header .navbar-tablet {
+      display: flex;
+      max-height: 0;
+      transition: all 1s;
+      flex-direction: column;
+      background-color: black;
+      overflow: hidden; }
+      body header .navbar-tablet.active {
+        max-height: 500px; }
+    body header .navbar {
+      display: none; }
+  body main section {
+    padding-top: 47px;
+    height: calc( 100vh - 47px ); } }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,10 @@
 
 
-$content-bg:rgba(0,0,0,0.9);
+$content-bg:rgba(255,255,255,1);
+
+$content-color: black;
+
+
 $section-color-1: #0000FF;
 $section-color-2: #0088FF;
 $section-color-3: #00FFFF;
@@ -8,6 +12,13 @@ $section-color-4: #00FF88;
 $section-color-5: #00FF00;
 $section-color-6: #88FF00;
 
-$mobile-width: 500px;
-$tablet-width: 768px;
-$medium-width: 1000px;
+$color1: rgba(234, 196, 53, 1);
+$color2: rgba(52, 89, 149, 1);
+$color3: rgba(228, 0, 102, 1);
+$color4: rgba(3, 206, 164, 1);
+$color5: rgba(251, 77, 61, 1);
+
+$xs: 500px;
+$sm: 768px;
+$m: 1000px;
+$l: 2000px;

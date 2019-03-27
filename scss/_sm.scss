@@ -1,0 +1,62 @@
+@media only screen and (max-width: $sm) {
+  body{
+    header {
+      top: 0;
+      left: 0;
+      #burger{
+        position: fixed;
+        right: 4px;
+        top: 4px;
+        padding: 8px;
+        background: black;
+        display: inline-block;
+        cursor: pointer;
+
+        .bar1, .bar2, .bar3 {
+          width: 25px;
+          height: 2px;
+          background-color: #fff;
+          margin: 4px 0;
+          transition: 0.4s;
+        }
+
+        &.change .bar1 {
+          // -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+          // transform: rotate(-45deg) translate(-9px, 6px);
+          transform: rotate(-45deg) translate(-6px, 4px);
+        }
+
+        &.change .bar2 {opacity: 0;}
+
+        &.change .bar3 {
+          // -webkit-transform: rotate(45deg) translate(-8px, -8px);
+          transform: rotate(45deg) translate(-4px, -3px);
+        }
+      }
+      .indicator{
+        display: none;
+      }
+      .navbar-tablet{
+        display: flex;
+        max-height: 0;
+        transition: all 1s;
+        flex-direction: column;
+        background-color: black;
+        overflow: hidden;
+        &.active{
+          max-height: 500px;
+        }
+      }
+      .navbar{
+        display: none;
+      }
+
+    }
+    main{
+      section{
+        padding-top: 47px;
+        height: calc( 100vh - 47px );
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@media only screen and (min-width: $m) {
+  body{
+    header {
+      position: fixed;
+      height: 40px;
+      top: 10px;
+      right: 10px;
+      // width: 100vw;
+      #burger{
+        display: none;
+      }
+    }
+
+  }
+}

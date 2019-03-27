@@ -19,8 +19,8 @@ $section-color-5: #00FF00;
 $section-color-6: #88FF00;
 
 $mobile-width: 500px;
-$tablet-width: 768px;
-$medium-width: 1000px;
+$sm: 768px;
+$m: 1000px;
 
 html{
   height: 100%;
@@ -168,7 +168,7 @@ body{
       // }
     }
   }
-  @media only screen and (max-width: $medium-width) {
+  @media only screen and (max-width: $m) {
     header {
       position: fixed;
       height: 40px;
@@ -177,7 +177,7 @@ body{
       width: 100vw;
     }
   }
-  @media only screen and (max-width: $tablet-width) {
+  @media only screen and (max-width: $sm) {
     header {
       #burger{
         // display: block;
@@ -370,7 +370,7 @@ main{
 
     }
   }
-  @media only screen and (max-width: $tablet-width) {
+  @media only screen and (max-width: $sm) {
     .bg-stripes{
       // display: none;
     }
@@ -401,7 +401,7 @@ main{
     //   padding-top: 90px;
     //
     // }
-    // @media only screen and (max-width: $tablet-width) {
+    // @media only screen and (max-width: $sm) {
     //   .container{
     //     padding-top: 0px;
     //   }

@@ -22,28 +22,30 @@ function handleBottomScroll(section){
   document.querySelector(section+'-nav').classList.add('active')
 }
 
+let isTicking
+const debounce = (callback, evt) => {
+  if (isTicking) return
+  requestAnimationFrame(() => {
+    callback(evt)
+    isTicking = false
+  })
+  isTicking = true
+}
 
 
 window.onload = function(){
 
-  let isTicking
-  const debounce = (callback, evt) => {
-    if (isTicking) return
-    requestAnimationFrame(() => {
-      callback(evt)
-      isTicking = false
-    })
-    isTicking = true
-  }
   //GET DOM ELEMENTS
   console.log('loaded')
   const mainScroll = document.querySelector('#main-scroll')
+  const skillsScroll = document.querySelector('#skills-scroll')
   const experienceScroll = document.querySelector('#experience-scroll')
+  const educationScroll = document.querySelector('#education-scroll')
   const projectsScroll = document.querySelector('#projects-scroll')
   // listen for scroll event and call handleMainScroll function
 
   const bgStripes = document.querySelector('.bg-stripes')
-  // const bg = document.querySelector('.bg')
+  const bg = document.querySelector('.bg')
   // bgStripes.style.backgroundImage = 'repeating-linear-gradient(45deg, red, red 20px, black 20px, black 40px)'
 
   // bgStripes.style.backgroundImage = 'linear-gradient(#000000, #ffffff)'
@@ -51,15 +53,15 @@ window.onload = function(){
   //MAIN SECTIONS
   const aboutSection = document.querySelector('#about')
   const projectsSection = document.querySelector('#projects')
-  // const skillsSection = document.querySelector('#skills')
+  const skillsSection = document.querySelector('#skills')
   const experienceSection = document.querySelector('#experience')
-  // const educationSection = document.querySelector('#education')
+  const educationSection = document.querySelector('#education')
   const contactSection = document.querySelector('#contact')
 
   //SECONDARY SECTIONS
-  // const skills1 = document.querySelector('#skills1')
-  // console.log(skills1)
-  // const skills2 = document.querySelector('#skills2')
+  const skills1 = document.querySelector('#skills1')
+  console.log(skills1)
+  const skills2 = document.querySelector('#skills2')
   const experience1 = document.querySelector('#experience1')
   const experience2 = document.querySelector('#experience2')
   const experience3 = document.querySelector('#experience3')
@@ -68,10 +70,10 @@ window.onload = function(){
   const project2 = document.querySelector('#project2')
   const project3 = document.querySelector('#project3')
   const project4 = document.querySelector('#project4')
-  // const education1 = document.querySelector('#education1')
-  // const education2 = document.querySelector('#education2')
-  // const education3 = document.querySelector('#education3')
-  // const education4 = document.querySelector('#education4')
+  const education1 = document.querySelector('#education1')
+  const education2 = document.querySelector('#education2')
+  const education3 = document.querySelector('#education3')
+  const education4 = document.querySelector('#education4')
 
 
   const navbar = document.querySelector('.navbar')
@@ -82,24 +84,24 @@ window.onload = function(){
 
   //MAIN NAVS
   const aboutNav = document.querySelector('#about-nav')
-  // const skillsNav = document.querySelector('#skills-nav')
+  const skillsNav = document.querySelector('#skills-nav')
   const experienceNav = document.querySelector('#experience-nav')
-  // const educationNav = document.querySelector('#education-nav')
+  const educationNav = document.querySelector('#education-nav')
   const projectsNav = document.querySelector('#projects-nav')
   const contactNav = document.querySelector('#contact-nav')
-  const mainNavArray = [aboutNav, experienceNav, projectsNav, contactNav]
+  const mainNavArray = [aboutNav, skillsNav, experienceNav, educationNav, projectsNav, contactNav]
 
   //BOTTOMS NAVS
   const navBottomHolder = document.querySelector('#nav-bottom-holder')
   const navBottomProjects = document.querySelector('#nav-bottom-projects')
-  // const navBottomSkills = document.querySelector('#nav-bottom-skills')
+  const navBottomSkills = document.querySelector('#nav-bottom-skills')
   const navBottomExperience = document.querySelector('#nav-bottom-experience')
-  // const navBottomEducation = document.querySelector('#nav-bottom-education')
-  const bottomNavArray = [navBottomProjects, navBottomExperience]
+  const navBottomEducation = document.querySelector('#nav-bottom-education')
+  const bottomNavArray = [navBottomProjects, navBottomSkills, navBottomExperience, navBottomEducation]
 
   //SECONDARY NAVS
-  // const skills1Nav = document.querySelector('#skills-1-nav')
-  // const skills2Nav = document.querySelector('#skills-2-nav')
+  const skills1Nav = document.querySelector('#skills-1-nav')
+  const skills2Nav = document.querySelector('#skills-2-nav')
   const experience1Nav = document.querySelector('#experience-1-nav')
   const experience2Nav = document.querySelector('#experience-2-nav')
   const experience3Nav = document.querySelector('#experience-3-nav')
@@ -108,24 +110,24 @@ window.onload = function(){
   const project2Nav = document.querySelector('#project-2-nav')
   const project3Nav = document.querySelector('#project-3-nav')
   const project4Nav = document.querySelector('#project-4-nav')
-  // const education1Nav = document.querySelector('#education-1-nav')
-  // const education2Nav = document.querySelector('#education-2-nav')
-  // const education3Nav = document.querySelector('#education-3-nav')
-  const secondaryNavArr = [experience1Nav, experience2Nav, experience3Nav, experience4Nav, project1Nav, project2Nav, project3Nav, project4Nav]
+  const education1Nav = document.querySelector('#education-1-nav')
+  const education2Nav = document.querySelector('#education-2-nav')
+  const education3Nav = document.querySelector('#education-3-nav')
+  const secondaryNavArr = [skills1Nav, skills2Nav, experience1Nav, experience2Nav, experience3Nav, experience4Nav, project1Nav, project2Nav, project3Nav, project4Nav, education1Nav, education2Nav, education3Nav]
 
   // const indicatorTrack = (navbar.offsetWidth - indicator.clientWidth)/100
   console.log('indicator.offsetWidth',indicator.clientWidth)
+  const numberOfPics = 5
 
-  // const numberOfPics = 5
-  // let bgTrack = ((numberOfPics*window.innerWidth)/100)
-  let bgStripesTrack = ((4*window.innerWidth)/100)
+  let bgTrack = ((numberOfPics*window.innerWidth)/100)
+  let bgStripesTrack = ((2*window.innerWidth)/100)
 
   //ADD EVENT LISTENERS
   mainScroll.addEventListener('scroll', (e)=>debounce(handleMainScroll,e))
-  // skillsScroll.addEventListener('scroll', (e)=>debounce(handleSideScroll,e))
+  skillsScroll.addEventListener('scroll', (e)=>debounce(handleSideScroll,e))
   experienceScroll.addEventListener('scroll', (e)=>debounce(handleSideScroll,e))
   projectsScroll.addEventListener('scroll', (e)=>debounce(handleSideScroll,e))
-  // educationScroll.addEventListener('scroll', (e)=>debounce(handleSideScroll,e))
+  educationScroll.addEventListener('scroll', (e)=>debounce(handleSideScroll,e))
 
   burgerToggle = ()=>{
     navbarTablet.classList.toggle('active')
@@ -186,10 +188,10 @@ window.onload = function(){
   }
 
   function moveBg(scrollPercent){
-    // const bgMove = bgTrack * scrollPercent
-    // // bgStripes.style.left = -bgMove+'px'
-    // bg.style.left = -bgMove+'px'
-    // console.log('movebg')
+    const bgMove = bgTrack * scrollPercent
+    // bgStripes.style.left = -bgMove+'px'
+    bg.style.left = -bgMove+'px'
+    console.log('movebg')
 
     const bgStripesMove = bgStripesTrack * scrollPercent
     bgStripes.style.left = -bgStripesMove+'px'
@@ -226,10 +228,10 @@ window.onload = function(){
       showBottomNav(bottomNavArray,navBottomProjects, 4)
       handleSideScroll(projectsScroll)
 
-      // }else if(inView(skillsSection, scrollY)){
-      //   setActiveNav(mainNavArray,skillsNav)
-      //   showBottomNav(bottomNavArray,navBottomSkills, 2)
-      //   handleSideScroll(skillsScroll)
+    }else if(inView(skillsSection, scrollY)){
+      setActiveNav(mainNavArray,skillsNav)
+      showBottomNav(bottomNavArray,navBottomSkills, 2)
+      handleSideScroll(skillsScroll)
 
 
     }else if(inView(experienceSection, scrollY)){
@@ -238,10 +240,10 @@ window.onload = function(){
       handleSideScroll(experienceScroll)
 
 
-      // }else if(inView(educationSection, scrollY)){
-      //   setActiveNav(mainNavArray,educationNav)
-      //   showBottomNav(bottomNavArray,navBottomEducation, 3)
-      //   handleSideScroll(educationScroll)
+    }else if(inView(educationSection, scrollY)){
+      setActiveNav(mainNavArray,educationNav)
+      showBottomNav(bottomNavArray,navBottomEducation, 3)
+      handleSideScroll(educationScroll)
 
 
     }else if(inView(contactSection, scrollY)){
@@ -255,11 +257,11 @@ window.onload = function(){
     const scrollY = calcScrollY()
     const scrollPercent = calcScrollPercent(scrollY)
 
-    // bgTrack = ((numberOfPics*window.innerWidth)/100)
+    bgTrack = ((numberOfPics*window.innerWidth)/100)
     moveIndicator(indicator, scrollPercent)
     moveBg(scrollPercent)
 
-    bgStripesTrack  = ((3*window.innerWidth)/100)
+    bgStripesTrack  = ((2*window.innerWidth)/100)
 
     // bg.style.width = 6*window.innerWidth
     // bg.style.height = window.innerHeight
@@ -280,13 +282,13 @@ window.onload = function(){
 
     moveIndicator(bottomIndicator, scrollPercent)
 
-    // if(inViewX(skills1, scrollX, scrollY)){
-    //   setActiveNav(secondaryNavArr,skills1Nav)
-    //
-    // }else if(inViewX(skills2, scrollX, scrollY)){
-    //   setActiveNav(secondaryNavArr,skills2Nav)
+    if(inViewX(skills1, scrollX, scrollY)){
+      setActiveNav(secondaryNavArr,skills1Nav)
 
-    if(inViewX(experience1, scrollX, scrollY)){
+    }else if(inViewX(skills2, scrollX, scrollY)){
+      setActiveNav(secondaryNavArr,skills2Nav)
+
+    }else if(inViewX(experience1, scrollX, scrollY)){
       setActiveNav(secondaryNavArr,experience1Nav)
 
     }else if(inViewX(experience2, scrollX, scrollY)){
@@ -298,14 +300,14 @@ window.onload = function(){
     }else if(inViewX(experience4, scrollX, scrollY)){
       setActiveNav(secondaryNavArr,experience4Nav)
 
-      // }else if(inViewX(education1, scrollX, scrollY)){
-      //   setActiveNav(secondaryNavArr,education1Nav)
-      //
-      // }else if(inViewX(education2, scrollX, scrollY)){
-      //   setActiveNav(secondaryNavArr,education2Nav)
-      //
-      // }else if(inViewX(education3, scrollX, scrollY)){
-      //   setActiveNav(secondaryNavArr,education3Nav)
+    }else if(inViewX(education1, scrollX, scrollY)){
+      setActiveNav(secondaryNavArr,education1Nav)
+
+    }else if(inViewX(education2, scrollX, scrollY)){
+      setActiveNav(secondaryNavArr,education2Nav)
+
+    }else if(inViewX(education3, scrollX, scrollY)){
+      setActiveNav(secondaryNavArr,education3Nav)
 
     }else if(inViewX(project1, scrollX, scrollY)){
       setActiveNav(secondaryNavArr,project1Nav)
