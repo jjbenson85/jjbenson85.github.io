@@ -2,138 +2,15 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <script src="app.js" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>James Benson</title>
 </head>
 <body>
   <main>
-    <div class="scroll">
-      <section id="about">
-      </section>
-      <section id="skills">
-      </section>
-      <section id="experience">
-      </section>
-      <section id="education">
-      </section>
-      <section id="projects">
-      </section>
-      <section id="contact">
-      </section>
+    <div class="bg-stripes-cv">
     </div>
   </main>
-  <script>
 
-  function showBottomNav(example){
-    var bottomNavs = document.querySelectorAll('.nav-bottom')
-    bottomNavs.forEach(elem => elem.classList.add('hidden'))
-    example && document.querySelector(example).classList.remove('hidden')
-  }
-
-  function toggleHidden(example){
-    console.log(example)
-    elem = document.querySelector(example)
-    elem.classList.toggle('hidden')
-  }
-
-  function handleScroll(section){
-    console.log('section', section)
-    element = document.querySelector(section)
-    element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
-  }
-
-  let isTicking
-  const debounce = (callback, evt) => {
-    if (isTicking) return
-    requestAnimationFrame(() => {
-      callback(evt);
-      isTicking = false
-    })
-    isTicking = true
-  }
-  const scroller = document.querySelector('.scroll')
-  // listen for scroll event and call animate function
-  scroller.addEventListener("scroll", (e)=>debounce(animate,e));
-
-  const projectsSection = document.querySelector('#projects')
-  const skillsSection = document.querySelector('#skills')
-  const experienceSection = document.querySelector('#experience')
-  const educationSection = document.querySelector('#education')
-  const indicator = document.querySelector('#indicator')
-  const navbar = document.querySelector('.navbar')
-  const indicatorTrack = navbar.offsetWidth - indicator.offsetWidth
-
-  indicator.onmousedown = moveIndicator
-  let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  function moveIndicator(e){
-    e = e || window.event
-    e.preventDefault()
-
-    pos3 = e.clientX;
-    // pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    document.onmousemove = elementDrag;
-    console.log("indicator", e.clientX)
-    indicator.style.left = e.clientX
-  }
-
-  function elementDrag(e){
-    e = e || window.event
-    e.preventDefault()
-    pos1 = pos3 - e.clientX;
-    // pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    // pos4 = e.clientY;
-    // indicator.style.top = (indicator.offsetTop - pos2) + "px"
-    indicator.style.left = (indicator.offsetLeft - pos1) + "px"
-    scroller.scrollTop -= pos1*10;
-
-    console.log('drag', pos1*20, scroller.scrollTop )
-
-  }
-
-  function closeDragElement(){
-    console.log('close')
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-
-  // check if element is in view
-  function inView(element, scrollY) {
-    // get window height
-    // var windowHeight = scroller.scrollHeight;
-    // get number of pixels that the document is scrolled
-
-
-    // get current scroll position (distance from the top of the page to the bottom of the current viewport)
-    var elementPosition = element.getBoundingClientRect().top + scrollY;
-    // console.log('check', windowHeight, scrollY, Math.floor(elementPosition))
-
-    // is scroll position greater than element position? (is element in view?)
-    return (scrollY >= Math.floor(elementPosition - 150) && scrollY < Math.floor(elementPosition + 150) )
-
-  }
-
-  // animate element when it is in view
-  function animate() {
-    // is element in view?
-    const scrollY = scroller.scrollTop || 0
-    scrollPercent = scrollY/(scroller.scrollHeight-window.innerHeight)*100
-    indicatorLeft = (indicatorTrack/100) * scrollPercent
-
-
-    console.log(scrollPercent, indicatorTrack, indicatorLeft)
-
-    indicator.style.left = indicatorLeft+"px"
-    showBottomNav()
-    inView(projectsSection, scrollY) && showBottomNav('#nav-projects')
-    inView(skillsSection, scrollY) && showBottomNav('#nav-skills')
-    inView(experienceSection, scrollY) && showBottomNav('#nav-experience')
-    inView(educationSection, scrollY) && showBottomNav('#nav-education')
-  }
-
-  </script>
 </body>
 </html>

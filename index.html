@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta name="theme-color" content="#317EFB"/>
    <meta name="Description" content="James Benson web developer portfolio">
-  <script src="app.js" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
   <link rel="stylesheet" href="style.css">
@@ -63,9 +62,31 @@
             <hr/>
             <div>
               <p>Hi! I am James.</p>
-              <p>I enjoy photography, synthesizers, rockets, lego and boardgames.</p>
+              <p>I enjoy...</p>
+              <div class="hobbies">
+                <div class="hobby">
+                  <img src="./images/photography.jpg" alt="Photography">
+                  <div class="title">Photography</div>
+                </div>
+                <div class="hobby">
+                  <img src="./images/synthesizer.jpg" alt="Synthesizers">
+                  <div class="title">Synthesizers</div>
+                </div>
+                <div class="hobby">
+                  <img src="./images/lego.jpg" alt="Lego">
+                  <div class="title">Lego</div>
+                </div>
+                <div class="hobby">
+                  <img src="./images/boardgames.jpg" alt="Board Games">
+                  <div class="title">Board Games</div>
+                </div>
+              </div>
               <p>I am also a web developer.</p>
-              <p>Take a look at some of my projects.</p>
+              <p>Take a look at my <span class="projectsButton" onclick="handleScroll('#projects')">projects</span>
+
+              see my <span class="experienceButton" onclick="handleScroll('#experience')">experience</span>
+
+              or get in <span class="contactButton" onclick="handleScroll('#contact')">contact</span></p>
               <!-- <p>I have recently finished a Web Development Immersive course at General Assembly London. It was an intensive 12 week course the took me from a beginner in HTML and JavaScript, to deploying Full-Stack applications built with tools such as React, MongoDB, Express and Node.js. The pace of new topics and content was fierce but I found it to be one of the most rewarding experiences of my life.</p>
 
               <p>Previously, I worked for Micro-Power Electronics Ltd., a small electronics company that creates equipment for the power industry. I was tasked with creating a dashboard to show data from industrial sensors. Through my own learning and internal assistance, I was able to gain the skills necessary to integrate the data and create client side visualisations. I discovered I really enjoyed working in JavaScript and learning web technologies. This created a desire to formalise my training as a full stack developer and why I joined General Assembly.</p>

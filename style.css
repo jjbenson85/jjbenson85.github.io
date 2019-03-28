@@ -99,11 +99,6 @@ h1, h2, h3, .nav-item, .links {
   font-weight: bold;
   letter-spacing: 0.2em; }
 
-span {
-  display: inline-block;
-  background-color: white;
-  padding: 20px; }
-
 main {
   height: 100%;
   display: flex;
@@ -151,6 +146,16 @@ main {
     width: 500vw;
     height: 100vh;
     background: linear-gradient(-225deg, #fb4d3d 0% 5%, #eac435 5% 30%, #345995 30% 55%, #e40066 55% 75%, #03cea4 75% 100%); }
+  main .bg-stripes-cv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    overflow: hidden;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(-135deg, #fb4d3d 0% 5%, #eac435 5% 30%, #345995 30% 55%, #e40066 55% 75%, #03cea4 75% 100%); }
   main section {
     padding-top: 100px;
     height: calc( 100vh - 100px );
@@ -228,6 +233,9 @@ a {
   #about .container .content, #contact .container .content {
     max-width: 600px; }
 
+#about p {
+  text-align: center; }
+
 #projects .side-scroll, #experience .side-scroll {
   display: flex;
   justify-content: center; }
@@ -275,6 +283,59 @@ i {
   border: 1px solid black;
   margin: 10px;
   padding: 10px; }
+
+.hobbies {
+  display: flex;
+  justify-content: space-around; }
+  .hobbies .hobby {
+    transition: all 1s;
+    border: 1px solid transparent;
+    width: 100%;
+    margin: 10px;
+    padding-top: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    .hobbies .hobby .title {
+      transition: all 1s;
+      background-color: white;
+      color: white;
+      text-align: center; }
+    .hobbies .hobby img {
+      height: 50px; }
+  .hobbies:hover .hobby {
+    border: 1px solid black;
+    border-top-color: #eac435;
+    border-right-color: #345995;
+    border-bottom-color: #e40066;
+    border-left-color: #03cea4;
+    width: 100%;
+    margin: 10px;
+    padding-top: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    .hobbies:hover .hobby .title {
+      background-color: black;
+      color: white;
+      text-align: center; }
+
+.projectsButton, .experienceButton, .contactButton {
+  display: inline-block;
+  transition: all 0.3s;
+  cursor: pointer;
+  text-decoration: underline; }
+  .projectsButton:hover, .experienceButton:hover, .contactButton:hover {
+    transform: translateY(-4px); }
+
+.projectsButton {
+  text-decoration-color: #345995; }
+
+.experienceButton {
+  text-decoration-color: #e40066; }
+
+.contactButton {
+  text-decoration-color: #03cea4; }
 
 @media only screen and (min-width: 1000px) {
   body header {

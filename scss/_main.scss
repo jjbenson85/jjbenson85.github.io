@@ -135,11 +135,11 @@ h1, h2, h3, .nav-item, .links{
   font-weight: bold;
   letter-spacing: 0.2em;
 }
-span{
-  display: inline-block;
-  background-color: $content-bg;
-  padding: 20px;
-}
+// span{
+//   display: inline-block;
+//   background-color: $content-bg;
+//   padding: 20px;
+// }
 main{
   height: 100%;
   display: flex;
@@ -195,6 +195,24 @@ main{
     height: 100vh;
     // background: linear-gradient(-45deg, red 0 50%, blue 50% 100%);
     background: linear-gradient(-225deg,
+    $color5 0% 5%,
+    $color1 5% 30%,
+    $color2 30% 55%,
+    $color3 55% 75%,
+    $color4 75% 100%,
+  )
+  }
+  .bg-stripes-cv{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    overflow: hidden;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    // background: linear-gradient(-45deg, red 0 50%, blue 50% 100%);
+    background: linear-gradient(-135deg,
     $color5 0% 5%,
     $color1 5% 30%,
     $color2 30% 55%,
@@ -335,6 +353,11 @@ a{
     }
   }
 }
+#about{
+  p{
+    text-align: center;
+  }
+}
 #projects, #experience{
   .side-scroll{
     display: flex;
@@ -393,5 +416,120 @@ i{
   border: 1px solid black;
   margin: 10px;
   padding: 10px;
+
+}
+.hobbies{
+  display: flex;
+  justify-content: space-around;
+
+  .hobby{
+    transition: all 1s;
+
+    border: 1px solid transparent;
+    // // border-radius: 5px;
+    // border-top-color: $color1;
+    // border-right-color: $color2;
+    // border-bottom-color: $color3;
+    // border-left-color: $color4;
+    width: 100%;
+    margin: 10px;
+    padding-top: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .title{
+      transition: all 1s;
+      background-color: white;
+      color: white;
+      text-align: center;
+    }
+    img{
+      height: 50px;
+    }
+  }
+  &:hover{
+    .hobby{
+      border: 1px solid $content-color;
+      // border-radius: 5px;
+      border-top-color: $color1;
+      border-right-color: $color2;
+      border-bottom-color: $color3;
+      border-left-color: $color4;
+      width: 100%;
+      margin: 10px;
+      padding-top: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .title{
+        background-color: black;
+        color: white;
+        text-align: center;
+      }
+    }
+  }
+}
+// .projectsButton{
+//   display: inline-block;
+//   border-radius: 4px;
+//   padding: 2px;
+//   border: 1px solid black;
+//   background: $color2;
+//   transition: all 1s;
+//   cursor: pointer;
+//   color: white;
+//   &:hover{
+//     background-color: $color2;
+//     color: white;
+//   }
+// }
+// .experienceButton{
+//   display: inline-block;
+//   border-radius: 4px;
+//   padding: 2px;
+//   border: 1px solid black;
+//   background: $color3;
+//   transition: all 1s;
+//   cursor: pointer;
+//   color: white;
+//   &:hover{
+//     background-color: $color3;
+//     color: white;
+//   }
+// }
+// .contactButton{
+//   display: inline-block;
+//   border-radius: 4px;
+//   padding: 2px;
+//   border: 1px solid black;
+//   background: $color4;
+//   transition: all 1s;
+//   cursor: pointer;
+//   color: white;
+//   &:hover{
+//     background-color: $color4;
+//     color: white;
+//   }
+// }
+.projectsButton, .experienceButton, .contactButton{
+  display: inline-block;
+  transition: all 0.3s;
+  cursor: pointer;
+  text-decoration: underline;
+  &:hover{
+    transform: translateY(-4px);
+  }
+}
+
+.projectsButton{
+  text-decoration-color: $color2;
+
+}
+.experienceButton{
+  text-decoration-color: $color3;
+
+}
+.contactButton{
+  text-decoration-color: $color4;
 
 }
