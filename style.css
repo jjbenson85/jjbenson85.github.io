@@ -1,5 +1,4 @@
 html {
-  height: 100%;
   box-sizing: border-box; }
 
 ::-webkit-scrollbar {
@@ -39,7 +38,7 @@ body {
       z-index: 1;
       display: inline-block;
       margin: 10px;
-      width: 120px;
+      width: 140px;
       text-align: center;
       user-select: none; }
       body header .nav-item:hover, body header .nav-item.active {
@@ -109,14 +108,16 @@ main {
     overflow-y: auto;
     /*adds scroll to this container*/
     scroll-snap-type: y mandatory;
-    overflow-x: hidden; }
+    overflow-x: hidden;
+    scroll-behavior: smooth; }
   main .content {
     padding: 20px;
     max-height: 90vh; }
   main .side-scroll-container {
     display: flex;
     overflow-x: scroll;
-    scroll-snap-type: x mandatory; }
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth; }
     main .side-scroll-container .side-scroll {
       width: 100%;
       flex: none;
@@ -213,6 +214,9 @@ p {
 
 .align-items-flex-end {
   align-items: flex-end; }
+
+.align-items-center {
+  align-items: center; }
 
 .left {
   width: calc(200%/3); }
@@ -336,6 +340,80 @@ i {
 
 .contactButton {
   text-decoration-color: #03cea4; }
+
+.arrow-container {
+  opacity: 0;
+  position: absolute;
+  display: flex;
+  transition: all 0.5s; }
+  .arrow-container.up, .arrow-container.down {
+    width: 100vw;
+    height: 50px;
+    justify-content: center; }
+  .arrow-container.up {
+    top: 60px; }
+  .arrow-container.down {
+    bottom: 30px; }
+  .arrow-container.left, .arrow-container.right {
+    width: 100px;
+    height: 100vh;
+    align-items: center; }
+  .arrow-container.left {
+    left: 0px; }
+  .arrow-container.right {
+    justify-content: flex-end;
+    right: 0px; }
+  .arrow-container:hover {
+    opacity: 0.5; }
+
+.arrow {
+  background-color: gray;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute; }
+  .arrow.show, .arrow:hover {
+    opacity: 0.5; }
+  .arrow.down {
+    left: 25%;
+    bottom: 20px;
+    width: 50%;
+    height: 50px;
+    clip-path: polygon(100% 0, 100% 77%, 50% 100%, 0 77%, 0 0, 50% 25%); }
+    .arrow.down:hover {
+      transform: translateY(10px); }
+  .arrow.up {
+    top: 100px;
+    left: 25%;
+    width: 50%;
+    height: 50px;
+    clip-path: polygon(100% 25%, 100% 100%, 50% 75%, 0 100%, 0 25%, 50% 0); }
+    .arrow.up:hover {
+      transform: translateY(-10px); }
+  .arrow.left {
+    top: 25%;
+    left: 20px;
+    height: 50%;
+    width: 50px;
+    clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%); }
+    .arrow.left:hover {
+      transform: translateX(-10px); }
+  .arrow.right {
+    top: 25%;
+    right: 20px;
+    height: 50%;
+    width: 50px;
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%); }
+    .arrow.right:hover {
+      transform: translateX(10px); }
+
+.brandworkz-logo {
+  background-image: url("https://www.brandworkz.com/wp-content/uploads/2019/05/Brandworkz_Logo_RGB_Neg_2.svg");
+  height: 40px;
+  width: 150px;
+  background-color: #290b3a;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 130px 25px; }
 
 @media only screen and (min-width: 1000px) {
   body header {

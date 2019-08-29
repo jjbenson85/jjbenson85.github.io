@@ -19,31 +19,33 @@
     </div>
     <nav class="navbar-tablet">
       <div  class="nav-item ul-1" onclick="handleScroll('#about')">about</div>
-      <div  class="nav-item ul-2" onclick="handleScroll('#projects')">projects</div>
       <div  class="nav-item ul-3" onclick="handleScroll('#experience')">experience</div>
+      <div  class="nav-item ul-2" onclick="handleScroll('#projects')">projects</div>
       <div  class="nav-item ul-4" onclick="handleScroll('#contact')">contact</div></nav>
     <nav class="navbar" >
       <div id="indicator" class='indicator'></div>
       <div class="nav-top">
         <div id="about-nav" class="nav-item active ul-1" onclick="handleScroll('#about')">about</div>
-        <div id="projects-nav" class="nav-item ul-2" onclick="handleScroll('#projects')">projects</div>
         <div id="experience-nav" class="nav-item ul-3" onclick="handleScroll('#experience')">experience</div>
+        <div id="projects-nav" class="nav-item ul-2" onclick="handleScroll('#projects')">projects</div>
         <div id="contact-nav" class="nav-item ul-4" onclick="handleScroll('#contact')">contact</div>
       </div>
       <div id="nav-bottom-holder">
         <div id="bottom-indicator" class='indicator'></div>
+        <div id="nav-bottom-experience" class="nav-bottom hidden">
+          <div id="experience-1-nav" class="nav-item ul-3" onclick="handleScroll('#experience1')">Brandworkz</div>
+          <div id="experience-1-nav" class="nav-item ul-3" onclick="handleScroll('#experience2')">GA</div>
+          <div id="experience-2-nav" class="nav-item ul-3" onclick="handleScroll('#experience3')">Micropower</div>
+          <div id="experience-3-nav" class="nav-item ul-3" onclick="handleScroll('#experience4')">Sound</div>
+          <div id="experience-4-nav" class="nav-item ul-3" onclick="handleScroll('#experience5')">Microsoft</div>
+        </div>
         <div id="nav-bottom-projects" class="nav-bottom hidden">
           <div id="project-1-nav" class="nav-item ul-2" onclick="handleScroll('#project1')">JamDex</div>
           <div id="project-2-nav" class="nav-item ul-2" onclick="handleScroll('#project2')">Pepino</div>
           <div id="project-3-nav" class="nav-item ul-2" onclick="handleScroll('#project3')">H&T</div>
           <div id="project-4-nav" class="nav-item ul-2" onclick="handleScroll('#project4')">Nocturn</div>
         </div>
-        <div id="nav-bottom-experience" class="nav-bottom hidden">
-          <div id="experience-1-nav" class="nav-item ul-3" onclick="handleScroll('#experience1')">GA</div>
-          <div id="experience-2-nav" class="nav-item ul-3" onclick="handleScroll('#experience2')">Micropower</div>
-          <div id="experience-3-nav" class="nav-item ul-3" onclick="handleScroll('#experience3')">Sound</div>
-          <div id="experience-4-nav" class="nav-item ul-3" onclick="handleScroll('#experience4')">Microsoft</div>
-        </div>
+       
       </div>
     </nav>
 
@@ -51,7 +53,10 @@
   <main>
     <div class="bg-stripes">
     </div>
-    <!-- <div class="jj">James Benson</div> -->
+    <div class="arrow up hidden"></div>
+    <div class="arrow down show" ></div>
+    <div class="arrow left hidden" ></div>
+    <div class="arrow right hidden show" ></div>
     <div id="main-scroll">
       <section id="about">
         <div class="container">
@@ -61,7 +66,7 @@
             </h3>
             <hr/>
             <div>
-              <p>Hi! I am James.</p>
+              <!-- <p>Hi! I am James.</p>
               <p>I enjoy...</p>
               <div class="hobbies">
                 <div class="hobby">
@@ -81,7 +86,7 @@
                   <div class="title">Board Games</div>
                 </div>
               </div>
-              <p>I am also a web developer.</p>
+              <p>I am also a web developer.</p> -->
               <p>Take a look at my <span class="projectsButton" onclick="handleScroll('#projects')">projects</span>
 
               see my <span class="experienceButton" onclick="handleScroll('#experience')">experience</span>
@@ -97,7 +102,85 @@
                 <a href="https://github.com/jjbenson85" target="_blank" rel="noreferrer"><i class="devicon-github-plain-wordmark"></i></a>
                 <a href="https://linkedin.com/in/jjbenson" target="_blank" rel="noreferrer"><img src="images/linkedin.png" alt="LinkedIn logo"></a>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="experience">
+        <div class="xcontainer">
+          <div id="experience-scroll" class="side-scroll-container">
+            <div id="experience1" class="side-scroll">
+              <div class="content">
+                <div class="flex space-between align-items-center">
+                  <h3>Brandworkz</h3>
+                  <div class='brandworkz-logo'></div>
+                </div>
+                <hr />
+                <h4>Junior Web Developer (May 2019 - August 2019)</h4>
+                <p>Brandworkz is a digital asset management system used by companies to host and mange their brand identites.</p>
+                  <p>
+                    One of the projects I'm most proud of at Brandworkz was creating a form Select component. It had to be a React component that was <a href='https://www.w3.org/TR/WCAG21/'>WCAG 2.1</a> compliant and styled with <a href='https://www.styled-components.com/'>styled-components</a>.
+                    The company and this project introduced me to <a href='https://www.atlassian.com/software/jira'>Jira</a> and agile working with a shared codebase. It really helped improve my confidence with GIT, (GIT rebase ftw!)
+                    I learnt how to use Hooks and styled components and the react-select api to produce a very flexible component that enabled single and multi select, groups, custom option components and more!
+                  </p>
+                  <!-- <p>My duties included creating React components and maintaining the legacy software using jQuery and CSS.</p>
+                  <p>This position really helped me improve with GIT and introduced Jira. I learnt how to use React Hooks and Styled components.</p>
+                  <p>One project that Iam proud of is a Select component built using the react-select library. </p> -->
 
+                </p>
+              </div>
+            </div>
+            <div id="experience2" class="side-scroll">
+              <div class="content">
+                <h3>General Assembly</h3>
+                <hr />
+                <h4>Student General Assembly (Nov 2018 - March 2019)</h4>
+                <p>Web development immersive course, a full time 12-week course that covered best practices and industry
+                  standards in programming fundamentals, product development basics, front-end development, back-end web
+                  development and team collaboration strategies.
+                </p>
+              </div>
+            </div>
+            <div id="experience3" class="side-scroll">
+              <div class="content">
+                <h3>Software Developer,</h3>
+                <hr />
+                <h4>Micro-Power Electronics Ltd., London (Jan/2016–November/2018)</h4>
+                <p>Micro-Power electronics produce fault detection and sensor control units for the power industry.
+                  Duties entail creating circuit board layouts from circuit designs in Easy-PC, using the MPLAB X IDE to
+                  program PIC microcontrollers in C, and assembling, testing and calibrating electronic devices.
+                </p>
+              </div>
+            </div>
+            <div id="experience4" class="side-scroll">
+              <div class="content">
+                <h3>Boom Operator</h3>
+                <hr />
+                <h4>Various, London (Jan/2013–November/2016)</h4>
+                <p>I worked on feature films and TV shows such as Poirot, Pokemon: Detective Pikachu, and Game of Thrones.</p>
+                <p>I would have to physically hold microphones above actors on set, hide microphones in actors clothing and
+                  control all unwanted external noise. I would often interact with other departments to ensure the best audio
+                  recordings possible.
+                </p>
+      
+                <!-- <h3>Sound Recordist</h3>
+                      <hr/>
+                      <h4>Various , London(July/2009 - August/2011)</h4>
+                      <p>Before attending film school I worked on many short and low budget feature films.
+                        I had to be the sole representative of the sound department and ensure good quality audio recordings.
+                      </p> -->
+              </div>
+            </div>
+            <div id="experience5" class="side-scroll">
+              <div class="content">
+                <h3>Web Producer</h3>
+                <hr />
+                <h4>Microsoft, London (July/2008–July/2009)</h4>
+                <p>I worked for MSN, the Microsoft web portal that provides News, Sport and Entertainment news.
+                  created custom web-page layouts using an in-house content management system to put editorial content onto
+                  the web. I also recorded podcasts and filmed interviews.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -214,70 +297,14 @@
                   </div>
                 </div>
               </div>
-
-            </div>
-
-          </div>
-        </div>
-      </section>
-      <section id="experience">
-        <div class="xcontainer">
-          <div id="experience-scroll" class="side-scroll-container">
-            <div id="experience1" class="side-scroll">
-              <div class="content">
-                <h3>General Assembly</h3>
-                <hr/>
-                <h4>Student General Assembly (Nov 2018 - March 2019)</h4>
-                <p>Web development immersive course, a full time 12-week course that covered best practices and industry standards in programming fundamentals, product development basics, front-end development, back-end web development and team collaboration strategies.
-                </p>
-              </div>
-            </div>
-            <div id="experience2" class="side-scroll">
-              <div class="content">
-                <h3>Software Developer,</h3>
-                <hr/>
-                <h4>Micro-Power Electronics Ltd., London (Jan/2016–November/2018)</h4>
-                <p>Micro-Power electronics produce fault detection and sensor control units for the power industry.
-                  Duties entail creating circuit board layouts from circuit designs in Easy-PC,  using the MPLAB X IDE to program PIC microcontrollers in C, and assembling, testing and calibrating electronic devices.
-                </p>
-              </div>
-            </div>
-            <div id="experience3" class="side-scroll">
-              <div class="content">
-                <h3>Boom Operator</h3>
-                <hr/>
-                <h4>Various, London (Jan/2013–November/2016)</h4>
-                <p>I worked on feature films and TV shows such as Poirot, Pokemon: Detective Pikachu, and Game of Thrones.</p>
-                <p>I would have to physically hold microphones above actors on set, hide microphones in actors clothing and control all unwanted external noise. I would often interact with other departments to ensure the best audio recordings possible.
-                </p>
-
-                <!-- <h3>Sound Recordist</h3>
-                <hr/>
-                <h4>Various , London(July/2009 - August/2011)</h4>
-                <p>Before attending film school I worked on many short and low budget feature films.
-                  I had to be the sole representative of the sound department and ensure good quality audio recordings.
-                </p> -->
-              </div>
-            </div>
-            <div id="experience4" class="side-scroll">
-              <div class="content">
-                <h3>Web Producer</h3>
-                <hr/>
-                <h4>Microsoft, London (July/2008–July/2009)</h4>
-                <p>I worked for MSN, the Microsoft web portal that provides News, Sport and Entertainment news.
-                  created custom web-page layouts using an in-house content management system to put editorial content onto the web. I also recorded podcasts and filmed interviews.
-                </p>
-              </div>
             </div>
           </div>
         </div>
       </section>
-
       <section id="contact">
         <div class="container">
           <div>
             <div class="content">
-
               <p>Email: <email>jjbenson85@gmail.com</email></p>
               <tel></tel>
               <p>GitHub: <a href="https://github.com/jjbenson85" target="_blank" rel="noreferrer">https://github.com/jjbenson85</a></p>
@@ -289,6 +316,5 @@
     </div>
   </main>
   <script src="app.js" charset="utf-8"></script>
-
 </body>
 </html>

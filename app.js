@@ -1,5 +1,4 @@
 
-
 function toggleHidden(example){
   const elem = document.querySelector(example)
   elem.classList.toggle('hidden')
@@ -23,10 +22,10 @@ function handleBottomScroll(section){
 }
 
 
-
 window.onload = function(){
-
+  let elementInView
   let isTicking
+  
   const debounce = (callback, evt) => {
     if (isTicking) return
     requestAnimationFrame(() => {
@@ -35,6 +34,7 @@ window.onload = function(){
     })
     isTicking = true
   }
+
   //GET DOM ELEMENTS
   console.log('loaded')
   const mainScroll = document.querySelector('#main-scroll')
@@ -57,6 +57,7 @@ window.onload = function(){
   const contactSection = document.querySelector('#contact')
 
   //SECONDARY SECTIONS
+  // const about1 = document.querySelector('#about1')
   // const skills1 = document.querySelector('#skills1')
   // console.log(skills1)
   // const skills2 = document.querySelector('#skills2')
@@ -112,6 +113,27 @@ window.onload = function(){
   // const education2Nav = document.querySelector('#education-2-nav')
   // const education3Nav = document.querySelector('#education-3-nav')
   const secondaryNavArr = [experience1Nav, experience2Nav, experience3Nav, experience4Nav, project1Nav, project2Nav, project3Nav, project4Nav]
+
+  const downArrow = document.querySelector('.down.arrow')
+  const upArrow = document.querySelector('.up.arrow')
+  const leftArrow = document.querySelector('.left.arrow')
+  const rightArrow = document.querySelector('.right.arrow')
+
+  let vw = document.documentElement.clientWidth;
+  let vh = document.documentElement.clientHeight;
+
+  downArrow.addEventListener('click', () => {
+    mainScroll.scrollTop+=vh
+    downArrow.classList.remove('show')
+  })
+  upArrow.addEventListener('click', () => mainScroll.scrollTop-=vh)
+  leftArrow.addEventListener('click', () => elementInView.scrollLeft-=vw)
+  rightArrow.addEventListener('click', () => {
+    elementInView.scrollLeft += vw
+    rightArrow.classList.remove('show')
+  })
+
+
 
   // const indicatorTrack = (navbar.offsetWidth - indicator.clientWidth)/100
   console.log('indicator.offsetWidth',indicator.clientWidth)
@@ -212,19 +234,23 @@ window.onload = function(){
     moveIndicator(indicator, scrollPercent)
     moveBg(scrollPercent)
 
-    // showNavBar(){
-    //
-    //
-    // }
-
     if(inView(aboutSection, scrollY)){
+      elementInView = null
       setActiveNav(mainNavArray,aboutNav)
       showBottomNav(bottomNavArray)
+      upArrow.classList.add('hidden')
+      downArrow.classList.remove('hidden')
+      hideArrow(leftArrow)
+      hideArrow(rightArrow)
 
     }else if(inView(projectsSection, scrollY)){
+      elementInView = projectsScroll
+
       setActiveNav(mainNavArray,projectsNav)
       showBottomNav(bottomNavArray,navBottomProjects, 4)
       handleSideScroll(projectsScroll)
+      upArrow.classList.remove('hidden')
+      downArrow.classList.remove('hidden')
 
       // }else if(inView(skillsSection, scrollY)){
       //   setActiveNav(mainNavArray,skillsNav)
@@ -233,10 +259,12 @@ window.onload = function(){
 
 
     }else if(inView(experienceSection, scrollY)){
+      elementInView = experienceScroll
       setActiveNav(mainNavArray,experienceNav)
-      showBottomNav(bottomNavArray,navBottomExperience, 4)
+      showBottomNav(bottomNavArray,navBottomExperience, 5)
       handleSideScroll(experienceScroll)
-
+      upArrow.classList.remove('hidden')
+      downArrow.classList.remove('hidden')
 
       // }else if(inView(educationSection, scrollY)){
       //   setActiveNav(mainNavArray,educationNav)
@@ -247,7 +275,18 @@ window.onload = function(){
     }else if(inView(contactSection, scrollY)){
       setActiveNav(mainNavArray,contactNav)
       showBottomNav(bottomNavArray)
+      upArrow.classList.remove('hidden')
+      downArrow.classList.add('hidden')
+      hideArrow(leftArrow)
+      hideArrow(rightArrow)
     }
+  }
+   function hideArrow(arrow){
+    arrow.classList.add('hidden')
+  }
+  function showArrows(){
+    leftArrow.classList.remove('hidden')
+    rightArrow.classList.remove('hidden')
   }
   windowResize = ()=>{
     console.log('window resize')
@@ -261,6 +300,9 @@ window.onload = function(){
 
     bgStripesTrack  = ((3*window.innerWidth)/100)
 
+    vw = document.documentElement.clientWidth;
+    vh = document.documentElement.clientHeight;
+
     // bg.style.width = 6*window.innerWidth
     // bg.style.height = window.innerHeight
     //
@@ -271,6 +313,8 @@ window.onload = function(){
 
   }
 
+ 
+
   function handleSideScroll(e){
 
     //If passed from scroll event elem is target, otherwise element is argument
@@ -280,6 +324,9 @@ window.onload = function(){
 
     moveIndicator(bottomIndicator, scrollPercent)
 
+
+    showArrows()
+
     // if(inViewX(skills1, scrollX, scrollY)){
     //   setActiveNav(secondaryNavArr,skills1Nav)
     //
@@ -288,6 +335,7 @@ window.onload = function(){
 
     if(inViewX(experience1, scrollX, scrollY)){
       setActiveNav(secondaryNavArr,experience1Nav)
+      hideArrow(leftArrow)
 
     }else if(inViewX(experience2, scrollX, scrollY)){
       setActiveNav(secondaryNavArr,experience2Nav)
@@ -297,7 +345,7 @@ window.onload = function(){
 
     }else if(inViewX(experience4, scrollX, scrollY)){
       setActiveNav(secondaryNavArr,experience4Nav)
-
+      hideArrow(rightArrow)
       // }else if(inViewX(education1, scrollX, scrollY)){
       //   setActiveNav(secondaryNavArr,education1Nav)
       //
@@ -309,6 +357,8 @@ window.onload = function(){
 
     }else if(inViewX(project1, scrollX, scrollY)){
       setActiveNav(secondaryNavArr,project1Nav)
+      hideArrow(leftArrow)
+
 
     }else if(inViewX(project2, scrollX, scrollY)){
       setActiveNav(secondaryNavArr,project2Nav)
@@ -318,6 +368,8 @@ window.onload = function(){
 
     }else if(inViewX(project4, scrollX, scrollY)){
       setActiveNav(secondaryNavArr,project4Nav)
+      hideArrow(rightArrow)
+
     }
   }
 }
